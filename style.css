@@ -169,17 +169,19 @@ p { margin: 0 0 1.15rem; }
 }
 
 .thumb {
-  height: 6.5rem;
-  display: grid;
-  place-items: center;
-  font-size: 2.6rem;
-  line-height: 1;
+  height: 7.75rem;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
 }
-.card.mc .thumb { background: linear-gradient(140deg, #4a7c3f, #8a6240); }
-.card.st .thumb { background: linear-gradient(140deg, #1b2838, #2a475e); }
-.card.iv .thumb { background: linear-gradient(140deg, #2f7d52, #7cb46b); }
-.card.wm .thumb { background: linear-gradient(140deg, #1e4c8a, #3a6cb0); }
-.card.ai .thumb { background: linear-gradient(140deg, #16264c, #3b5a92); }
+
+.thumb svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform .4s ease;
+}
+
+.card:hover .thumb svg { transform: scale(1.06); }
 
 .body { padding: 1.15rem 1.3rem 1rem; flex: 1; display: flex; flex-direction: column; }
 
@@ -205,28 +207,6 @@ p { margin: 0 0 1.15rem; }
   color: var(--muted);
 }
 
-/* ── 引言 ─────────────────────────────── */
-
-.quote {
-  margin: 2rem 0;
-  padding: 1.5rem 1.6rem 1.2rem;
-  background: color-mix(in srgb, var(--gold) 9%, var(--surface));
-  border-left: 4px solid var(--gold);
-  border-radius: 0 var(--radius) var(--radius) 0;
-}
-.quote p {
-  margin: 0 0 .5rem;
-  font-size: 1.12rem;
-  font-weight: 700;
-  line-height: 1.85;
-  color: var(--text);
-}
-.quote cite {
-  font-style: normal;
-  font-size: .85rem;
-  color: var(--muted);
-}
-
 /* ── 頁尾 ─────────────────────────────── */
 
 footer {
@@ -246,6 +226,22 @@ footer .sites {
 }
 footer .sites a { color: var(--green); text-decoration: none; }
 footer .sites a:hover { text-decoration: underline; }
+footer .counter {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: .35rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: var(--surface);
+  font-size: .85rem;
+}
+footer .counter strong {
+  color: var(--green);
+  font-variant-numeric: tabular-nums;
+  margin: 0 .15rem;
+}
+
 footer .small { margin: 0; font-size: .8rem; opacity: .8; }
 
 a { color: var(--green); }
