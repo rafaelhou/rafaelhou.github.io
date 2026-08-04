@@ -1,0 +1,262 @@
+/* ═══════════════════════════════════════
+   侯政宏 — 個人網站
+   ═══════════════════════════════════════ */
+
+:root {
+  --bg:       #fbfaf7;
+  --surface:  #ffffff;
+  --text:     #232a26;
+  --muted:    #6a746e;
+  --line:     #e4e6e2;
+  --green:    #2d4a3e;
+  --green-lt: #4a7a63;
+  --gold:     #b5883c;
+  --radius: 14px;
+  --wrap: 48rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:       #141715;
+    --surface:  #1d211e;
+    --text:     #e6eae7;
+    --muted:    #99a29c;
+    --line:     #2c322e;
+    --green:    #7fb99c;
+    --green-lt: #9bcdb3;
+    --gold:     #d8ab63;
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC",
+               -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 1.25rem; }
+
+/* ── Hero ─────────────────────────────── */
+
+.hero {
+  background: linear-gradient(165deg, #1f342b, #2d4a3e 52%, #4a7a63);
+  color: #fff;
+  padding: 5rem 0 4.25rem;
+  text-align: center;
+}
+
+.hero .kicker {
+  margin: 0 0 1rem;
+  font-size: .72rem;
+  letter-spacing: .42em;
+  text-indent: .42em;
+  opacity: .65;
+}
+
+.hero h1 {
+  margin: 0 0 .5rem;
+  font-size: clamp(2.4rem, 8vw, 3.6rem);
+  letter-spacing: .18em;
+  text-indent: .18em;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.hero .role {
+  margin: 0 0 2rem;
+  font-size: .92rem;
+  letter-spacing: .12em;
+  opacity: .78;
+}
+
+.hero .lede {
+  margin: 0 auto;
+  max-width: 32rem;
+  font-size: 1rem;
+  line-height: 2.05;
+  opacity: .93;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(255,255,255,.2);
+}
+
+/* ── 目錄 ─────────────────────────────── */
+
+.toc {
+  position: sticky; top: 0; z-index: 20;
+  background: color-mix(in srgb, var(--bg) 91%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.toc .wrap {
+  display: flex; gap: .3rem; justify-content: center;
+  overflow-x: auto; scrollbar-width: none;
+  padding-top: .55rem; padding-bottom: .55rem;
+}
+.toc .wrap::-webkit-scrollbar { display: none; }
+.toc a {
+  flex: none; padding: .3rem .85rem; border-radius: 99px;
+  color: var(--muted); font-size: .87rem; text-decoration: none; white-space: nowrap;
+  transition: background .15s, color .15s;
+}
+.toc a:hover { background: color-mix(in srgb, var(--green) 13%, transparent); color: var(--green); }
+
+/* ── 區塊 ─────────────────────────────── */
+
+main { padding-bottom: 2rem; }
+section { padding: 4rem 0 1.5rem; border-bottom: 1px solid var(--line); }
+section:last-child { border-bottom: 0; }
+
+.series {
+  margin: 0 0 .4rem;
+  font-size: .72rem;
+  letter-spacing: .3em;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: 1.7rem;
+  line-height: 1.45;
+  letter-spacing: .04em;
+  color: var(--green);
+}
+
+.intro {
+  margin: 0 0 2rem;
+  color: var(--muted);
+  font-size: .98rem;
+  line-height: 1.95;
+}
+.intro strong { color: var(--text); }
+
+p { margin: 0 0 1.15rem; }
+
+.lead-out {
+  border-left: 4px solid var(--gold);
+  padding-left: 1.1rem;
+  font-size: 1.02rem;
+}
+
+/* ── 卡片 ─────────────────────────────── */
+
+.cards { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
+.cards.single { grid-template-columns: 1fr; }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 26px rgba(0,0,0,.11);
+  border-color: var(--green-lt);
+}
+
+.thumb {
+  height: 6.5rem;
+  display: grid;
+  place-items: center;
+  font-size: 2.6rem;
+  line-height: 1;
+}
+.card.mc .thumb { background: linear-gradient(140deg, #4a7c3f, #8a6240); }
+.card.st .thumb { background: linear-gradient(140deg, #1b2838, #2a475e); }
+.card.iv .thumb { background: linear-gradient(140deg, #2f7d52, #7cb46b); }
+.card.wm .thumb { background: linear-gradient(140deg, #1e4c8a, #3a6cb0); }
+.card.ai .thumb { background: linear-gradient(140deg, #16264c, #3b5a92); }
+
+.body { padding: 1.15rem 1.3rem 1rem; flex: 1; display: flex; flex-direction: column; }
+
+.card h3 {
+  margin: 0 0 .5rem;
+  font-size: 1.08rem;
+  line-height: 1.6;
+  color: var(--green);
+}
+
+.card p {
+  margin: 0 0 .7rem;
+  font-size: .93rem;
+  line-height: 1.85;
+  color: var(--text);
+}
+
+.card .meta {
+  margin: auto 0 0;
+  padding-top: .6rem;
+  border-top: 1px dashed var(--line);
+  font-size: .8rem;
+  color: var(--muted);
+}
+
+/* ── 引言 ─────────────────────────────── */
+
+.quote {
+  margin: 2rem 0;
+  padding: 1.5rem 1.6rem 1.2rem;
+  background: color-mix(in srgb, var(--gold) 9%, var(--surface));
+  border-left: 4px solid var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.quote p {
+  margin: 0 0 .5rem;
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.85;
+  color: var(--text);
+}
+.quote cite {
+  font-style: normal;
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+/* ── 頁尾 ─────────────────────────────── */
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 2.5rem 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: .87rem;
+}
+
+footer .sites {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .4rem 1.1rem;
+  margin-bottom: 1rem;
+}
+footer .sites a { color: var(--green); text-decoration: none; }
+footer .sites a:hover { text-decoration: underline; }
+footer .small { margin: 0; font-size: .8rem; opacity: .8; }
+
+a { color: var(--green); }
+
+/* ── 手機 ─────────────────────────────── */
+
+@media (max-width: 34rem) {
+  body { font-size: 16px; }
+  .hero { padding: 3.75rem 0 3rem; }
+  .hero h1 { letter-spacing: .12em; text-indent: .12em; }
+  section { padding-top: 3rem; }
+  .cards { grid-template-columns: 1fr; }
+  .thumb { height: 5.5rem; font-size: 2.2rem; }
+}
