@@ -1,0 +1,490 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="三年級暑假作業「一毛不拔」立體作品的施工圖：完成示意圖、材料清單、裁切尺寸、展開圖與製作順序。">
+<meta name="theme-color" content="#c99a63">
+<meta property="og:title" content="一毛不拔 · 立體作品施工圖">
+<meta property="og:description" content="材料清單、裁切尺寸、展開圖與製作順序，可直接列印。">
+<meta property="og:type" content="article">
+<title>一毛不拔 · 立體作品施工圖</title>
+<style>
+  @page { size: A4 portrait; margin: 12mm; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 12mm;
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+    color: #1b1b1b; line-height: 1.75; font-size: 11pt;
+    background: #fff;
+  }
+  h1 { font-size: 20pt; margin: 0 0 2mm; letter-spacing: .02em; }
+  .sub { color: #666; margin: 0 0 6mm; font-size: 10pt; }
+  h2 {
+    font-size: 13pt; margin: 8mm 0 3mm; padding-bottom: 1.5mm;
+    border-bottom: 2px solid #1b1b1b;
+  }
+  h3 { font-size: 11pt; margin: 5mm 0 2mm; }
+  p { margin: 0 0 3mm; }
+  .note { font-size: 9.5pt; color: #555; }
+  b { font-weight: 700; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 10pt; margin-bottom: 4mm; }
+  th, td { border: 1px solid #bbb; padding: 1.8mm 2.5mm; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; font-weight: 700; }
+  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .chk { list-style: none; padding: 0; margin: 0 0 4mm; font-size: 10pt; }
+  .chk li { padding: 1mm 0 1mm 7mm; position: relative; }
+  .chk li::before {
+    content: ""; position: absolute; left: 0; top: 2.2mm;
+    width: 3.6mm; height: 3.6mm; border: 1.2px solid #444; border-radius: .6mm;
+  }
+  .chk .key { font-weight: 700; }
+  .chk .why { color: #666; }
+
+  .row { display: flex; gap: 6mm; align-items: flex-start; }
+  .row > div { flex: 1; }
+
+  figure { margin: 0 0 4mm; }
+  figcaption { font-size: 9.5pt; color: #555; margin-top: 1.5mm; }
+  svg { width: 100%; height: auto; display: block; }
+
+  ol.steps { margin: 0 0 4mm; padding-left: 6mm; }
+  ol.steps li { margin-bottom: 2.5mm; }
+
+  .box {
+    border: 1.5px solid #1b1b1b; border-radius: 2mm;
+    padding: 3mm 4mm; margin: 4mm 0; font-size: 10pt;
+  }
+  .box h3 { margin-top: 0; }
+
+  .pagebreak { break-before: page; }
+
+  @media print {
+    body { padding: 0; }
+    .noprint { display: none; }
+  }
+  .noprint {
+    background: #fff7e6; border: 1px solid #e0c080; border-radius: 2mm;
+    padding: 3mm 4mm; font-size: 10pt; margin-bottom: 6mm;
+  }
+
+  /* ── 螢幕版：原本的 mm 尺寸是為列印設計的，螢幕上另外覆蓋 ── */
+  @media screen {
+    body { max-width: 900px; margin: 0 auto; padding: 16px 18px 56px; font-size: 16px; line-height: 1.85; }
+    h1 { font-size: 1.55rem; margin-bottom: 4px; }
+    .sub { font-size: .92rem; margin-bottom: 22px; }
+    h2 { font-size: 1.12rem; margin: 34px 0 12px; padding-bottom: 6px; }
+    h3 { font-size: 1rem; margin: 20px 0 8px; }
+    p { margin-bottom: 12px; }
+    .row { flex-direction: column; gap: 8px; }
+    .chk { font-size: .95rem; }
+    .chk li { padding: 4px 0 4px 26px; }
+    .chk li::before { width: 15px; height: 15px; top: 9px; border-radius: 3px; }
+    .tw { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 16px; }
+    .tw table { font-size: .92rem; min-width: 560px; margin-bottom: 0; }
+    th, td { padding: 7px 9px; }
+    .box { padding: 14px 16px; margin: 18px 0; border-radius: 10px; font-size: .95rem; }
+    ol.steps { padding-left: 22px; }
+    ol.steps li { margin-bottom: 10px; }
+    figcaption { font-size: .88rem; margin-top: 8px; }
+    figure { margin-bottom: 22px; }
+    .note { font-size: .9rem; }
+    .pagebreak { height: 0; }
+
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      background: #fff7ec; border: 1px solid #e0c9a6; border-radius: 12px;
+      padding: 12px 14px; margin-bottom: 24px;
+    }
+    .tb-txt b { display: block; font-size: 1rem; }
+    .tb-txt span { font-size: .85rem; color: #7a6b55; }
+    #printBtn {
+      flex: 0 0 auto; font: inherit; font-size: .92rem; font-weight: 700; cursor: pointer;
+      padding: 9px 16px; border-radius: 999px; border: 2px solid #c99a63;
+      background: #fff; color: #8f6a3c;
+    }
+    #printBtn:hover { background: #c99a63; color: #fff; }
+  }
+  @media screen and (min-width: 680px) { .row { flex-direction: row; gap: 22px; } }
+  @media screen and (max-width: 420px) { body { padding: 12px 14px 48px; } h1 { font-size: 1.32rem; } }
+</style>
+
+<div class="topbar noprint">
+  <div class="tb-txt"><b>一毛不拔 · 立體作品施工圖</b><span>三年級暑假作業　·　列印共 3 頁</span></div>
+  <button type="button" id="printBtn">🖨️ 列印</button>
+</div>
+
+<h1>「一毛不拔」立體作品 · 施工圖</h1>
+<p class="sub">尺寸單位：公釐（mm）　·　建議完成尺寸：寬 297 × 高 210 × 深 130</p>
+
+<h2>完成示意圖</h2>
+
+<figure>
+  <svg viewBox="0 0 600 470" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#bfe4f7"/><stop offset="1" stop-color="#e8f5fd"/>
+      </linearGradient>
+      <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8fce6f"/><stop offset="1" stop-color="#6fb554"/>
+      </linearGradient>
+      <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000" flood-opacity=".22"/>
+      </filter>
+    </defs>
+
+    <!-- 底板（透視） -->
+    <path d="M40 330 H560 L592 438 H8 Z" fill="url(#ground)" stroke="#4d8c3a" stroke-width="2"/>
+    <!-- 背板 -->
+    <rect x="40" y="20" width="520" height="310" fill="url(#sky)" stroke="#3f7fa8" stroke-width="2"/>
+
+    <!-- 太陽 -->
+    <g filter="url(#soft)">
+      <g stroke="#f2a63c" stroke-width="7" stroke-linecap="round">
+        <line x1="497" y1="28" x2="497" y2="10"/><line x1="497" y1="106" x2="497" y2="124"/>
+        <line x1="458" y1="67" x2="440" y2="67"/><line x1="536" y1="67" x2="554" y2="67"/>
+        <line x1="470" y1="40" x2="457" y2="27"/><line x1="524" y1="94" x2="537" y2="107"/>
+        <line x1="470" y1="94" x2="457" y2="107"/><line x1="524" y1="40" x2="537" y2="27"/>
+      </g>
+      <circle cx="497" cy="67" r="30" fill="#ffd23f" stroke="#e0a92c" stroke-width="2.5"/>
+    </g>
+
+    <!-- 雲 -->
+    <g fill="#fff" stroke="#c3ddea" stroke-width="2" filter="url(#soft)">
+      <path d="M92 78 a22 22 0 0 1 42 -10 a18 18 0 0 1 32 10 a16 16 0 0 1 -6 30 H104 a16 16 0 0 1 -12 -30 Z"/>
+      <path d="M258 52 a17 17 0 0 1 32 -8 a14 14 0 0 1 25 8 a12 12 0 0 1 -5 23 h-48 a12 12 0 0 1 -4 -23 Z"/>
+    </g>
+
+    <!-- 影子 -->
+    <ellipse cx="228" cy="352" rx="70" ry="12" fill="#000" opacity=".13"/>
+    <ellipse cx="372" cy="356" rx="52" ry="10" fill="#000" opacity=".13"/>
+
+    <!-- ══ 爺爺 ══ -->
+    <g filter="url(#soft)">
+      <!-- 腳 -->
+      <path d="M198 330 h26 v14 h-30 a4 4 0 0 1 4 -14 Z" fill="#4a3b2e"/>
+      <path d="M236 330 h26 a4 4 0 0 1 4 14 h-30 Z" fill="#4a3b2e"/>
+      <!-- 長袍 -->
+      <path d="M188 208 q40 -14 84 0 l16 124 q-58 12 -116 0 Z" fill="#4f7fc4" stroke="#3a63a0" stroke-width="2.5"/>
+      <path d="M230 208 v124" stroke="#3a63a0" stroke-width="2" opacity=".55"/>
+      <!-- 交叉的手臂 -->
+      <path d="M192 236 q38 26 76 -4" fill="none" stroke="#3a63a0" stroke-width="3"/>
+      <path d="M196 248 q36 24 72 -6" fill="none" stroke="#3a63a0" stroke-width="3"/>
+      <ellipse cx="196" cy="242" rx="13" ry="10" fill="#f3cba6" stroke="#d8a878" stroke-width="2"/>
+      <ellipse cx="266" cy="238" rx="13" ry="10" fill="#f3cba6" stroke="#d8a878" stroke-width="2"/>
+      <!-- 頭 -->
+      <circle cx="230" cy="160" r="46" fill="#f7d6b0" stroke="#d8a878" stroke-width="2.5"/>
+      <!-- 眉毛（生氣） -->
+      <path d="M203 142 l22 10" stroke="#3b2f26" stroke-width="5" stroke-linecap="round"/>
+      <path d="M257 142 l-22 10" stroke="#3b2f26" stroke-width="5" stroke-linecap="round"/>
+      <!-- 眼睛 -->
+      <circle cx="212" cy="160" r="8.5" fill="#fff" stroke="#3b2f26" stroke-width="2"/>
+      <circle cx="248" cy="160" r="8.5" fill="#fff" stroke="#3b2f26" stroke-width="2"/>
+      <circle cx="213" cy="161" r="3.6" fill="#2a2118"/><circle cx="247" cy="161" r="3.6" fill="#2a2118"/>
+      <!-- 大吼的嘴 -->
+      <ellipse cx="230" cy="186" rx="15" ry="11" fill="#a8433c" stroke="#3b2f26" stroke-width="2"/>
+      <path d="M218 183 q12 -5 24 0" fill="#fff" opacity=".85"/>
+      <!-- 腮紅 -->
+      <ellipse cx="196" cy="176" rx="8" ry="5" fill="#e88b7d" opacity=".55"/>
+      <ellipse cx="264" cy="176" rx="8" ry="5" fill="#e88b7d" opacity=".55"/>
+      <!-- ★ 那根毛（毛根） -->
+      <path d="M230 114 q-6 -34 10 -52" fill="none" stroke="#2a2118" stroke-width="5.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- ══ 小孩 ══ -->
+    <g filter="url(#soft)">
+      <path d="M348 336 h22 v10 h-26 a4 4 0 0 1 4 -10 Z" fill="#5a4632"/>
+      <path d="M380 336 h22 a4 4 0 0 1 4 10 h-26 Z" fill="#5a4632"/>
+      <path d="M344 268 h64 v70 h-64 Z" fill="#8a6a44" stroke="#6d5233" stroke-width="2.2"/>
+      <path d="M340 214 q36 -10 72 0 l6 56 q-42 10 -84 0 Z" fill="#f5d04e" stroke="#d4ad2a" stroke-width="2.4"/>
+      <!-- 伸出去要拔毛的手：手指必須指向那根毛，不是指向臉 -->
+      <path d="M344 222 q-30 -62 -76 -94" fill="none" stroke="#f5d04e" stroke-width="15" stroke-linecap="round"/>
+      <circle cx="266" cy="126" r="12" fill="#f7d6b0" stroke="#d8a878" stroke-width="2"/>
+      <!-- 快要捏到的兩根手指 -->
+      <path d="M258 116 l-10 -9" stroke="#f7d6b0" stroke-width="7" stroke-linecap="round"/>
+      <path d="M258 116 l-10 -9" stroke="#d8a878" stroke-width="1.6" fill="none" opacity=".6"/>
+      <path d="M264 112 l-4 -12" stroke="#f7d6b0" stroke-width="7" stroke-linecap="round"/>
+      <path d="M264 112 l-4 -12" stroke="#d8a878" stroke-width="1.6" fill="none" opacity=".6"/>
+      <!-- 另一手 -->
+      <path d="M408 226 q22 16 24 40" fill="none" stroke="#f5d04e" stroke-width="14" stroke-linecap="round"/>
+      <circle cx="433" cy="270" r="11" fill="#f7d6b0" stroke="#d8a878" stroke-width="2"/>
+      <!-- 頭 -->
+      <circle cx="376" cy="176" r="38" fill="#f7d6b0" stroke="#d8a878" stroke-width="2.4"/>
+      <path d="M340 166 q4 -40 36 -40 t36 40 q-10 -18 -36 -18 t-36 18 Z" fill="#33291f"/>
+      <circle cx="363" cy="178" r="7" fill="#fff" stroke="#3b2f26" stroke-width="1.8"/>
+      <circle cx="391" cy="178" r="7" fill="#fff" stroke="#3b2f26" stroke-width="1.8"/>
+      <circle cx="364" cy="179" r="3" fill="#2a2118"/><circle cx="390" cy="179" r="3" fill="#2a2118"/>
+      <ellipse cx="377" cy="199" rx="11" ry="8" fill="#a8433c" stroke="#3b2f26" stroke-width="1.8"/>
+      <ellipse cx="347" cy="192" rx="7" ry="4.5" fill="#e88b7d" opacity=".55"/>
+      <ellipse cx="405" cy="192" rx="7" ry="4.5" fill="#e88b7d" opacity=".55"/>
+    </g>
+
+    <!-- 對話框：爺爺 -->
+    <g filter="url(#soft)">
+      <path d="M74 108 l104 -6 l10 30 l-12 34 l-104 6 l-10 -32 Z" fill="#fff" stroke="#2a2118" stroke-width="2.4"/>
+      <path d="M178 146 l24 18 l-26 2 Z" fill="#fff" stroke="#2a2118" stroke-width="2.4"/>
+      <text x="128" y="132" text-anchor="middle" font-size="19" font-weight="700" fill="#1b1b1b"
+            font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif">一根毛</text>
+      <text x="128" y="156" text-anchor="middle" font-size="19" font-weight="700" fill="#c4453a"
+            font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif">也不行！</text>
+    </g>
+
+    <!-- 對話框：小孩 -->
+    <g filter="url(#soft)">
+      <path d="M436 122 l92 -4 l8 26 l-10 28 l-92 4 l-8 -26 Z" fill="#fff" stroke="#2a2118" stroke-width="2.4"/>
+      <path d="M436 156 l-22 14 l24 2 Z" fill="#fff" stroke="#2a2118" stroke-width="2.4"/>
+      <text x="484" y="146" text-anchor="middle" font-size="18" font-weight="700" fill="#1b1b1b"
+            font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif">借我一根嘛！</text>
+    </g>
+
+    <!-- 木牌 -->
+    <g filter="url(#soft)">
+      <rect x="72" y="236" width="86" height="66" rx="4" fill="#c99a63" stroke="#8f6a3c" stroke-width="2.4"/>
+      <rect x="110" y="300" width="10" height="44" fill="#8f6a3c"/>
+      <text x="115" y="264" text-anchor="middle" font-size="21" font-weight="700" fill="#4a3218"
+            font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif">一毛</text>
+      <text x="115" y="292" text-anchor="middle" font-size="21" font-weight="700" fill="#4a3218"
+            font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif">不拔</text>
+    </g>
+
+    <!-- 前景草叢 -->
+    <g fill="#5aa844" stroke="#3f8130" stroke-width="1.6">
+      <path d="M8 438 l14 -30 l10 30 Z"/><path d="M28 438 l16 -40 l12 40 Z"/><path d="M52 438 l12 -26 l10 26 Z"/>
+      <path d="M470 438 l14 -34 l12 34 Z"/><path d="M496 438 l16 -42 l12 42 Z"/><path d="M524 438 l12 -28 l10 28 Z"/>
+      <path d="M296 438 l12 -26 l10 26 Z"/><path d="M316 438 l14 -34 l12 34 Z"/>
+    </g>
+    <!-- 小花 -->
+    <g>
+      <circle cx="88" cy="404" r="7" fill="#f2a63c"/><circle cx="88" cy="404" r="3" fill="#fff"/>
+      <circle cx="452" cy="416" r="7" fill="#e8607a"/><circle cx="452" cy="416" r="3" fill="#fff"/>
+    </g>
+
+    <!-- 標註：那根毛 -->
+    <path d="M243 58 q42 -22 84 -22" fill="none" stroke="#c4453a" stroke-width="2" stroke-dasharray="5 4"/>
+    <circle cx="243" cy="58" r="4" fill="#c4453a"/>
+    <text x="334" y="40" font-size="15" font-weight="700" fill="#c4453a"
+          font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif">← 這根用毛根做，會晃</text>
+
+    <text x="300" y="462" text-anchor="middle" font-size="12" fill="#666"
+          font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif">
+      完成後：寬 297 × 高 210 × 深 130 mm，可以自己站在桌上
+    </text>
+  </svg>
+  <figcaption>
+    <b>這是我畫的示意圖，不是照片。</b>畫風不必照抄——重點是看懂
+    <b>爺爺偏左、小孩偏右、手伸向那根毛</b>的動線，以及對話框要放在頭部外側不擋臉。
+  </figcaption>
+</figure>
+
+<div class="pagebreak"></div>
+
+<h2>一、材料清單</h2>
+
+<h3>非買不可的三樣</h3>
+<ul class="chk">
+  <li><span class="key">雙面泡棉膠　3mm 厚</span>　<span class="why">立體感的來源。人物墊高 3–5mm 才有陰影與層次，少了它就只是一張貼畫</span></li>
+  <li><span class="key">黑色毛根（扭扭棒）　30cm × 1 支</span>　<span class="why">爺爺頭上那根毛。會彎、會晃、有毛絨感</span></li>
+  <li><span class="key">厚紙板或西卡紙　4 開 × 1 張</span>　<span class="why">背板＋底板要一整片對折才站得穩，A4 不夠大</span></li>
+</ul>
+
+<h3>建議準備</h3>
+<ul class="chk">
+  <li><span class="key">西卡紙 A4 × 2 張</span>　<span class="why">畫人物用。比影印紙硬挺，剪下來不會軟趴趴</span></li>
+  <li><span class="key">色紙</span>　<span class="why">藍（天空）、綠（草地、草叢）、黃＋橘（太陽）、白（雲、對話框）</span></li>
+  <li><span class="key">黑色細簽字筆　0.5mm</span>　<span class="why">所有剪下的紙片沿邊描一圈，立刻變得像插畫</span></li>
+  <li><span class="key">保麗龍膠或白膠</span>　<span class="why">黏立體物件比口紅膠牢</span></li>
+</ul>
+
+<h3>家裡應該有</h3>
+<p class="note">剪刀　·　美工刀（大人操作）　·　切割墊或舊雜誌　·　口紅膠　·　鉛筆　·　橡皮擦　·　直尺　·　彩色筆或色鉛筆</p>
+
+<div class="box">
+  <h3>兩個省事的訣竅</h3>
+  <p><b>天空和草地用色紙貼，不要用顏料塗。</b>大面積上色紙會皺，貼的又快又平整。</p>
+  <p style="margin:0"><b>找不到 4 開紙板，就用兩張 A4 從背面用寬膠帶貼成書本狀</b>，正面看不到接縫。</p>
+</div>
+
+<h2>二、裁切尺寸表</h2>
+<div class="tw"><table>
+  <thead>
+    <tr><th>編號</th><th>零件</th><th class="num">尺寸（寬 × 高 mm）</th><th>材料</th><th>備註</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>A</td><td>背板＋底板（一整片）</td><td class="num">297 × 340</td><td>厚紙板／西卡紙</td><td>距下緣 130mm 處折 90°</td></tr>
+    <tr><td>B</td><td>天空色紙</td><td class="num">297 × 210</td><td>藍色色紙</td><td>貼滿背板</td></tr>
+    <tr><td>C</td><td>草地色紙</td><td class="num">297 × 130</td><td>綠色色紙</td><td>貼滿底板</td></tr>
+    <tr><td>D</td><td>爺爺</td><td class="num">約 70 × 110</td><td>西卡紙</td><td>光頭，頭頂留 3mm 厚度好戳洞</td></tr>
+    <tr><td>E</td><td>小孩</td><td class="num">約 55 × 90</td><td>西卡紙</td><td>比爺爺矮，手往上伸</td></tr>
+    <tr><td>F</td><td>太陽</td><td class="num">直徑 55</td><td>黃＋橘色紙</td><td>橘色光芒墊在黃色圓後面</td></tr>
+    <tr><td>G</td><td>雲　× 2～3 朵</td><td class="num">約 60 × 30</td><td>白色色紙</td><td>大小不一比較自然</td></tr>
+    <tr><td>H</td><td>「一毛不拔」牌子</td><td class="num">55 × 45</td><td>西卡紙／牛皮紙</td><td>下方加一根 30mm 木樁</td></tr>
+    <tr><td>I</td><td>對話框「一根毛也不行!!」</td><td class="num">約 55 × 35</td><td>白色色紙</td><td>爆炸框，黑筆寫字</td></tr>
+    <tr><td>J</td><td>對話框「借我一根嘛！」</td><td class="num">約 45 × 30</td><td>白色色紙</td><td>同上</td></tr>
+    <tr><td>K</td><td>前景草叢</td><td class="num">297 × 30</td><td>綠色色紙</td><td>上緣剪鋸齒，貼底板前緣</td></tr>
+    <tr><td>L</td><td>接縫草叢</td><td class="num">297 × 25</td><td>綠色色紙</td><td>貼折線處遮接縫</td></tr>
+    <tr><td>M</td><td>那根毛</td><td class="num">露出 50</td><td>黑色毛根</td><td>另留 10mm 折彎固定在背面</td></tr>
+  </tbody>
+</table></div>
+
+<div class="pagebreak"></div>
+
+<h2>三、展開圖與折線</h2>
+
+<div class="row">
+  <div>
+    <figure>
+      <svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
+        <!-- 主板 -->
+        <rect x="30" y="20" width="140" height="160" fill="#fff" stroke="#1b1b1b" stroke-width="1.6"/>
+        <!-- 折線 -->
+        <line x1="30" y1="120" x2="170" y2="120" stroke="#1b1b1b" stroke-width="1.2" stroke-dasharray="5 3"/>
+        <text x="100" y="117" text-anchor="middle" font-size="6.5" fill="#1b1b1b">折線（往內折 90°）</text>
+
+        <text x="100" y="70" text-anchor="middle" font-size="9" font-weight="700">背板 · 天空</text>
+        <text x="100" y="80" text-anchor="middle" font-size="7" fill="#555">297 × 210</text>
+        <text x="100" y="150" text-anchor="middle" font-size="9" font-weight="700">底板 · 草地</text>
+        <text x="100" y="160" text-anchor="middle" font-size="7" fill="#555">297 × 130</text>
+
+        <!-- 寬度標註 -->
+        <line x1="30" y1="196" x2="170" y2="196" stroke="#666" stroke-width="0.8"/>
+        <line x1="30" y1="192" x2="30" y2="200" stroke="#666" stroke-width="0.8"/>
+        <line x1="170" y1="192" x2="170" y2="200" stroke="#666" stroke-width="0.8"/>
+        <text x="100" y="205" text-anchor="middle" font-size="7" fill="#444">297</text>
+
+        <!-- 高度標註 -->
+        <line x1="16" y1="20" x2="16" y2="120" stroke="#666" stroke-width="0.8"/>
+        <line x1="12" y1="20" x2="20" y2="20" stroke="#666" stroke-width="0.8"/>
+        <line x1="12" y1="120" x2="20" y2="120" stroke="#666" stroke-width="0.8"/>
+        <text x="13" y="72" text-anchor="middle" font-size="7" fill="#444" transform="rotate(-90 13 72)">210</text>
+
+        <line x1="16" y1="120" x2="16" y2="180" stroke="#666" stroke-width="0.8"/>
+        <line x1="12" y1="180" x2="20" y2="180" stroke="#666" stroke-width="0.8"/>
+        <text x="13" y="152" text-anchor="middle" font-size="7" fill="#444" transform="rotate(-90 13 152)">130</text>
+
+        <text x="100" y="228" text-anchor="middle" font-size="7" fill="#555">總展開：297 × 340</text>
+      </svg>
+      <figcaption><b>展開圖</b>　先量好折線位置再折，折之前用尺背面壓一道痕，折起來才會直。</figcaption>
+    </figure>
+  </div>
+
+  <div>
+    <figure>
+      <svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
+        <!-- 側視：L 形 -->
+        <line x1="60" y1="30" x2="60" y2="150" stroke="#1b1b1b" stroke-width="3"/>
+        <line x1="60" y1="150" x2="165" y2="150" stroke="#1b1b1b" stroke-width="3"/>
+        <path d="M60 138 h12 v12" fill="none" stroke="#666" stroke-width="0.9"/>
+        <text x="78" y="146" font-size="6.5" fill="#444">90°</text>
+
+        <text x="52" y="90" text-anchor="middle" font-size="7.5" fill="#444" transform="rotate(-90 52 90)">背板 210</text>
+        <text x="112" y="163" text-anchor="middle" font-size="7.5" fill="#444">底板 130</text>
+
+        <!-- 三層 -->
+        <rect x="63" y="60" width="5" height="26" fill="#ddd" stroke="#1b1b1b" stroke-width="0.9"/>
+        <text x="73" y="70" font-size="6.2" fill="#1b1b1b">第 1 層　太陽・雲</text>
+        <text x="73" y="78" font-size="5.8" fill="#666">直接貼平，不墊</text>
+
+        <rect x="80" y="70" width="5" height="60" fill="#bbb" stroke="#1b1b1b" stroke-width="0.9"/>
+        <line x1="68" y1="100" x2="80" y2="100" stroke="#666" stroke-width="0.7" stroke-dasharray="2 1.5"/>
+        <text x="90" y="98" font-size="6.2" fill="#1b1b1b">第 2 層　爺爺・小孩</text>
+        <text x="90" y="106" font-size="5.8" fill="#666">泡棉膠墊高 3mm</text>
+
+        <rect x="104" y="96" width="5" height="46" fill="#999" stroke="#1b1b1b" stroke-width="0.9"/>
+        <text x="114" y="122" font-size="6.2" fill="#1b1b1b">第 3 層　牌子・對話框・草叢</text>
+        <text x="114" y="130" font-size="5.8" fill="#666">泡棉膠疊兩層 ≈ 6mm</text>
+
+        <!-- 毛 -->
+        <path d="M70 58 q3 -14 8 -18" fill="none" stroke="#1b1b1b" stroke-width="1.8" stroke-linecap="round"/>
+        <text x="84" y="38" font-size="6.2" fill="#1b1b1b">毛根　露出 50mm</text>
+
+        <text x="100" y="200" text-anchor="middle" font-size="7" fill="#555">越前面的東西墊越高，</text>
+        <text x="100" y="210" text-anchor="middle" font-size="7" fill="#555">層次才看得出來</text>
+      </svg>
+      <figcaption><b>側視圖</b>　立體感靠的是「分三層、越前面墊越高」，不是把東西畫得很立體。</figcaption>
+    </figure>
+  </div>
+</div>
+
+<h2>四、正面配置圖</h2>
+
+<figure>
+  <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背板 -->
+    <rect x="15" y="15" width="290" height="205" fill="#fbfdff" stroke="#1b1b1b" stroke-width="1.4"/>
+    <!-- 底板（透視成一條帶） -->
+    <rect x="15" y="220" width="290" height="28" fill="#f4faf2" stroke="#1b1b1b" stroke-width="1.4"/>
+    <text x="160" y="238" text-anchor="middle" font-size="7.5" fill="#555">底板 · 草地（深 130）</text>
+
+    <!-- 太陽 F -->
+    <circle cx="262" cy="48" r="20" fill="#fff" stroke="#1b1b1b" stroke-width="1.2"/>
+    <text x="262" y="51" text-anchor="middle" font-size="9" font-weight="700">F</text>
+    <text x="262" y="76" text-anchor="middle" font-size="6.5" fill="#555">太陽 ⌀55</text>
+
+    <!-- 雲 G -->
+    <ellipse cx="70" cy="42" rx="26" ry="12" fill="#fff" stroke="#1b1b1b" stroke-width="1.2"/>
+    <text x="70" y="45" text-anchor="middle" font-size="9" font-weight="700">G</text>
+    <ellipse cx="140" cy="62" rx="20" ry="9" fill="#fff" stroke="#1b1b1b" stroke-width="1.2"/>
+    <text x="140" y="65" text-anchor="middle" font-size="8" font-weight="700">G</text>
+
+    <!-- 爺爺 D -->
+    <rect x="95" y="105" width="52" height="112" rx="3" fill="#fff" stroke="#1b1b1b" stroke-width="1.4"/>
+    <text x="121" y="158" text-anchor="middle" font-size="11" font-weight="700">D</text>
+    <text x="121" y="172" text-anchor="middle" font-size="6.5" fill="#555">爺爺 70×110</text>
+    <!-- 毛 M -->
+    <path d="M121 105 q2 -20 9 -30" fill="none" stroke="#1b1b1b" stroke-width="2" stroke-linecap="round"/>
+    <text x="150" y="72" font-size="7" font-weight="700">M ← 毛根</text>
+
+    <!-- 小孩 E -->
+    <rect x="178" y="126" width="42" height="91" rx="3" fill="#fff" stroke="#1b1b1b" stroke-width="1.4"/>
+    <text x="199" y="172" text-anchor="middle" font-size="11" font-weight="700">E</text>
+    <text x="199" y="186" text-anchor="middle" font-size="6.5" fill="#555">小孩 55×90</text>
+
+    <!-- 對話框 I -->
+    <rect x="55" y="96" width="46" height="28" rx="2" fill="#fff" stroke="#1b1b1b" stroke-width="1.2"/>
+    <text x="78" y="114" text-anchor="middle" font-size="9" font-weight="700">I</text>
+    <!-- 對話框 J -->
+    <rect x="228" y="110" width="40" height="25" rx="2" fill="#fff" stroke="#1b1b1b" stroke-width="1.2"/>
+    <text x="248" y="127" text-anchor="middle" font-size="9" font-weight="700">J</text>
+
+    <!-- 牌子 H -->
+    <rect x="30" y="150" width="46" height="38" rx="2" fill="#fff" stroke="#1b1b1b" stroke-width="1.2"/>
+    <text x="53" y="174" text-anchor="middle" font-size="9" font-weight="700">H</text>
+    <line x1="53" y1="188" x2="53" y2="217" stroke="#1b1b1b" stroke-width="1.6"/>
+    <text x="53" y="200" text-anchor="middle" font-size="6" fill="#555" transform="rotate(-90 53 200)">木樁</text>
+
+    <!-- 接縫草叢 L -->
+    <line x1="15" y1="217" x2="305" y2="217" stroke="#1b1b1b" stroke-width="1" stroke-dasharray="4 2.5"/>
+    <text x="290" y="213" text-anchor="end" font-size="6.5" fill="#555">L　接縫草叢遮這條線</text>
+
+    <!-- 前景草叢 K -->
+    <text x="160" y="256" text-anchor="middle" font-size="6.5" fill="#555">K　前景草叢貼底板最前緣（貼在桌面那一側）</text>
+  </svg>
+  <figcaption>
+    <b>正面配置</b>　位置不用照抄，但兩件事建議照做：<b>爺爺偏左、小孩偏右</b>（留出「伸手要拔」的動線），
+    <b>對話框斜放在人物頭部外側</b>（壓到臉會看不清楚）。
+  </figcaption>
+</figure>
+
+<h2>五、製作順序</h2>
+<ol class="steps">
+  <li><b>裁板、壓折線、折 90°。</b>折之前用尺的背面壓一道痕，折起來才直。</li>
+  <li><b>貼天空與草地色紙</b>（B、C）。整片貼滿再修邊，比先剪好再貼準。</li>
+  <li><b>畫人物、剪下、用黑筆沿邊描一圈</b>（D、E）。描邊是整體風格的關鍵，別跳過。</li>
+  <li><b>從最後面往前貼</b>：太陽、雲 → 爺爺、小孩 → 牌子、對話框、草叢。每往前一層就多墊一層泡棉膠。</li>
+  <li><b>貼接縫草叢</b>（L），把背板與底板的折線遮住，整體就完整了。</li>
+  <li><b>最後裝那根毛</b>：頭頂用鉛筆戳小洞，毛根穿過去，背面留 10mm 折彎用膠帶固定，正面留 50mm。</li>
+</ol>
+
+<div class="box">
+  <h3>寫在牌子背面的典故（加分用）</h3>
+  <p style="margin:0">
+    這個成語出自《孟子》。古代思想家楊朱主張「<b>拔一毛而利天下，不為也</b>」——
+    就算拔一根毛就能讓天下人得到好處，他也不肯。後來就用「一毛不拔」形容非常小氣的人。
+  </p>
+</div>
+
+<footer class="noprint" style="margin-top:36px;padding-top:18px;border-top:1px solid #ddd;font-size:.88rem;color:#666">這一頁可以直接列印（A4 直向，3 頁）。<a href="https://rafaelhou.github.io/" style="color:#8f6a3c">回其他筆記</a></footer>
+<script>document.getElementById("printBtn").onclick=function(){window.print()};</script>
+<p class="note" style="margin-top:6mm">
+  參考圖是 AI 生成的示意圖，畫風不必照抄。<b>用他自己的畫法畫</b>，老師看得出來哪個是孩子自己做的。
+</p>
