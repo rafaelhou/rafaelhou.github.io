@@ -1,0 +1,242 @@
+/* ═══════════════════════════════════════════════════════════
+   打字小英雄 — 版面
+   介面的視覺主題是「一塊鍵盤」：所有按鈕都是鍵帽形狀
+   （下緣加厚、按下去會沉下去），打字區則是機器上的深色螢幕。
+   ═══════════════════════════════════════════════════════════ */
+
+/* ---------- tokens: light ---------- */
+:root{
+  color-scheme:light;
+  --bg:#E4E7F0;
+  --case:#D5DAE8;
+  --surface:#FFFFFF;
+  --surface-2:#F1F3F9;
+  --edge:#B9C0D4;
+  --ink:#1B1E2E;
+  --ink-soft:#5C6480;
+  --line:#CBD2E2;
+  --accent:#FF5A1F;
+  --accent-ink:#FFFFFF;
+  --good:#15A34A;
+  --bad:#E11D48;
+  /* 打字區是一塊「機器螢幕」，兩種主題都刻意保持深色 */
+  --screen:#0B0D16;
+  --screen-2:#161A28;
+  --screen-ink:#E7EAF6;
+  --screen-dim:#7C85A6;
+  --shadow:0 10px 30px rgba(27,30,46,.13);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#12141F;
+    --case:#1A1D2B;
+    --surface:#282C3E;
+    --surface-2:#1E2131;
+    --edge:#0C0E17;
+    --ink:#EDEFF7;
+    --ink-soft:#9AA2BE;
+    --line:#343A4D;
+    --accent:#FF6B35;
+    --accent-ink:#12141F;
+    --good:#34D399;
+    --bad:#FB7185;
+    --screen:#080A11;
+    --screen-2:#12151F;
+    --screen-ink:#E7EAF6;
+    --screen-dim:#767F9E;
+    --shadow:0 10px 30px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#12141F;
+  --case:#1A1D2B;
+  --surface:#282C3E;
+  --surface-2:#1E2131;
+  --edge:#0C0E17;
+  --ink:#EDEFF7;
+  --ink-soft:#9AA2BE;
+  --line:#343A4D;
+  --accent:#FF6B35;
+  --accent-ink:#12141F;
+  --good:#34D399;
+  --bad:#FB7185;
+  --screen:#080A11;
+  --screen-2:#12151F;
+  --screen-ink:#E7EAF6;
+  --screen-dim:#767F9E;
+  --shadow:0 10px 30px rgba(0,0,0,.45);
+}
+
+/* ---------- 十根手指的顏色（兩種主題共用） ---------- */
+:root{
+  --f-lp:#FF6B6B; --f-lr:#FF9F45; --f-lm:#F5C518; --f-li:#4ADE80;
+  --f-ri:#38BDF8; --f-rm:#A78BFA; --f-rr:#F472B6; --f-rp:#2DD4BF;
+  --f-th:#94A3B8;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Trebuchet MS","Segoe UI","Microsoft JhengHei","PingFang TC",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.app{max-width:960px;margin:0 auto;padding:28px 20px 56px;display:flex;flex-direction:column;gap:24px}
+
+/* ---------- 標題列 ---------- */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand h1{margin:0;font-size:30px;letter-spacing:-.5px;text-wrap:balance}
+.brand .en{
+  font-family:Consolas,"SF Mono",ui-monospace,monospace;
+  font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);
+}
+.top-tools{display:flex;gap:8px}
+
+/* ---------- 鍵帽：整個介面共用的形狀 ---------- */
+.cap{
+  appearance:none;font:inherit;color:var(--ink);cursor:pointer;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-bottom:4px solid var(--edge);
+  border-radius:10px;
+  padding:9px 16px;
+  transition:transform .06s ease,border-bottom-width .06s ease;
+}
+.cap:hover{background:var(--surface-2)}
+.cap:active{transform:translateY(3px);border-bottom-width:1px}
+.cap:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.cap.esc{background:var(--accent);color:var(--accent-ink);border-color:transparent;border-bottom-color:rgba(0,0,0,.35)}
+.cap.esc:hover{filter:brightness(1.06);background:var(--accent)}
+
+/* ---------- 關卡選單 ---------- */
+.lead{margin:0;color:var(--ink-soft);max-width:62ch;line-height:1.8}
+.levels{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:18px}
+.lv{text-align:left;display:flex;flex-direction:column;gap:6px;padding:16px}
+.lv .n{
+  font-family:Consolas,ui-monospace,monospace;font-size:12px;letter-spacing:2px;
+  color:var(--accent);text-transform:uppercase;
+}
+.lv .t{font-size:19px;font-weight:bold}
+.lv .d{font-size:13px;color:var(--ink-soft);line-height:1.55}
+.lv .sample{
+  font-family:Consolas,ui-monospace,monospace;font-size:13px;color:var(--ink-soft);
+  background:var(--surface-2);border-radius:6px;padding:5px 8px;margin-top:4px;
+  overflow-x:auto;white-space:nowrap;
+}
+
+/* ---------- 數據 ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stat{
+  background:var(--surface);border:1px solid var(--line);border-bottom:4px solid var(--edge);
+  border-radius:10px;padding:10px 12px;
+}
+.stat b{
+  display:block;font-family:Consolas,ui-monospace,monospace;font-size:26px;
+  font-variant-numeric:tabular-nums;line-height:1.1;
+}
+.stat span{font-size:12px;color:var(--ink-soft);letter-spacing:.5px}
+
+/* ---------- 打字螢幕 ---------- */
+.screen{
+  background:var(--screen);
+  border:1px solid var(--line);border-radius:14px;
+  box-shadow:var(--shadow);
+  padding:26px 24px;
+  display:flex;flex-direction:column;gap:16px;
+}
+.progress-dots{display:flex;gap:6px}
+.progress-dots span{width:24px;height:5px;border-radius:3px;background:var(--screen-2)}
+.progress-dots span.done{background:var(--good)}
+.progress-dots span.now{background:var(--accent)}
+#line{
+  margin:0;font-family:Consolas,"SF Mono",ui-monospace,monospace;
+  font-size:32px;line-height:1.6;letter-spacing:1px;color:var(--screen-dim);
+  word-break:break-word;
+}
+#line .ok{color:var(--good)}
+#line .no{color:var(--bad);background:rgba(225,29,72,.25);border-radius:3px}
+#line .cur{
+  color:#10131C;background:var(--accent);border-radius:3px;
+  animation:blink 1.05s steps(1) infinite;
+}
+#line .sp{white-space:pre}
+@keyframes blink{50%{background:transparent;color:var(--accent)}}
+.shake{animation:shake .16s ease}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.hint{font-size:15px;color:var(--screen-dim);display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-height:30px}
+.hint .finger{font-weight:bold;padding:3px 10px;border-radius:20px;color:#10131C}
+.hint kbd{
+  font-family:Consolas,ui-monospace,monospace;background:var(--screen-2);color:var(--screen-ink);
+  border-radius:5px;padding:3px 10px;border:1px solid #2A2F42;
+}
+
+/* ---------- 輸入法提醒 ---------- */
+.warn{
+  display:flex;gap:10px;align-items:flex-start;
+  background:var(--surface);border:1px solid var(--accent);border-left:5px solid var(--accent);
+  border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.7;
+}
+
+/* ---------- 畫面上的鍵盤 ---------- */
+.kb{
+  background:var(--case);border:1px solid var(--line);border-radius:14px;
+  padding:12px;display:flex;flex-direction:column;gap:6px;overflow-x:auto;
+}
+.kb-row{display:flex;gap:6px;justify-content:center;min-width:660px}
+.k{
+  flex:0 0 42px;height:42px;border-radius:8px;
+  background:var(--surface);border:1px solid var(--line);border-bottom:3px solid var(--edge);
+  display:flex;align-items:center;justify-content:center;
+  font-family:Consolas,ui-monospace,monospace;font-size:14px;color:var(--ink-soft);
+  position:relative;transition:transform .07s ease;
+}
+.k::after{
+  content:"";position:absolute;left:6px;right:6px;bottom:4px;height:3px;border-radius:2px;
+  background:var(--fc,transparent);opacity:.85;
+}
+.k.wide{flex-basis:92px}
+.k.space{flex-basis:290px}
+.k.next{
+  background:var(--fc,var(--accent));color:#10131C;font-weight:bold;
+  border-color:transparent;transform:translateY(2px);border-bottom-width:1px;
+}
+.k.next::after{opacity:0}
+.k.home::before{
+  content:"";position:absolute;bottom:9px;left:50%;transform:translateX(-50%);
+  width:12px;height:2px;border-radius:2px;background:var(--ink-soft);opacity:.7;
+}
+
+/* ---------- 成績 ---------- */
+.result{
+  background:var(--surface);border:1px solid var(--line);border-bottom:5px solid var(--edge);
+  border-radius:14px;padding:32px 26px;text-align:center;
+  display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow);
+}
+.stars{font-size:46px;letter-spacing:8px;line-height:1}
+.result h2{margin:0;font-size:26px}
+.result .msg{margin:0;color:var(--ink-soft);line-height:1.8}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px}
+.rgrid div{background:var(--surface-2);border-radius:10px;padding:12px}
+.rgrid b{display:block;font-family:Consolas,ui-monospace,monospace;font-size:24px;font-variant-numeric:tabular-nums}
+.rgrid span{font-size:12px;color:var(--ink-soft)}
+.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+
+/* ---------- 頁尾 ---------- */
+footer{color:var(--ink-soft);font-size:13px;text-align:center;line-height:1.8}
+footer p{margin:.2em 0}
+footer .counter strong{color:var(--accent);font-variant-numeric:tabular-nums}
+footer .small a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line)}
+footer .small a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+[hidden]{display:none !important}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important}
+}
+@media (max-width:560px){
+  #line{font-size:24px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+}

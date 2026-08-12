@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="7" fill="#1B1E2E"/>
+  <!-- 鍵帽：下緣加厚，和站內按鈕同一個形狀語言 -->
+  <rect x="6" y="7" width="20" height="18" rx="4" fill="#FF5A1F"/>
+  <rect x="6" y="21" width="20" height="4" rx="2" fill="#C43F12"/>
+  <text x="16" y="20" font-family="Consolas, ui-monospace, monospace" font-size="13"
+        font-weight="700" fill="#FFF" text-anchor="middle">A</text>
+</svg>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>打字小英雄 — 英文打字練習</title>
+<meta name="description" content="給小學生的英文打字練習。畫面上的鍵盤會亮起下一個要按的鍵，顏色代表要用哪一根手指，從主排鍵一路練到含大寫與標點的短句。不需帳號，不上傳資料。">
+<meta name="theme-color" content="#FF5A1F">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.svg">
+</head>
+<body>
+
+<div class="app">
+  <div class="top">
+    <div class="brand">
+      <h1>打字小英雄</h1>
+      <span class="en">Type Hero</span>
+    </div>
+    <div class="top-tools">
+      <button class="cap" id="soundBtn" type="button">🔊 音效開</button>
+      <button class="cap" id="homeBtn" type="button" hidden>← 選關卡</button>
+    </div>
+  </div>
+
+  <section id="menu">
+    <p class="lead">
+      選一個關卡就可以開始。畫面下面的鍵盤會亮起<strong>下一個要按的鍵</strong>，顏色代表<strong>要用哪一根手指</strong>。
+      眼睛看螢幕就好，盡量不要低頭看鍵盤喔！
+    </p>
+    <div class="levels" id="levelList"></div>
+  </section>
+
+  <section id="stage" hidden>
+    <div class="stats">
+      <div class="stat"><b id="sWpm">0</b><span>每分鐘字數 WPM</span></div>
+      <div class="stat"><b id="sAcc">100%</b><span>正確率</span></div>
+      <div class="stat"><b id="sTime">0.0s</b><span>時間</span></div>
+      <div class="stat"><b id="sErr">0</b><span>打錯次數</span></div>
+    </div>
+
+    <div class="warn" id="imeWarn" hidden>
+      <span>⚠️</span>
+      <span><strong>輸入法還在中文模式！</strong>按一下鍵盤的 <strong>Shift</strong> 切成英文（右下角會從「中」變成「英」），才打得出英文字母。</span>
+    </div>
+
+    <div class="screen">
+      <div class="progress-dots" id="dots"></div>
+      <p id="line"></p>
+      <div class="hint" id="hint"></div>
+    </div>
+
+    <div class="kb" id="kb"></div>
+  </section>
+
+  <section id="result" class="result" hidden>
+    <div class="stars" id="rStars">⭐</div>
+    <h2 id="rTitle">完成！</h2>
+    <p class="msg" id="rMsg"></p>
+    <div class="rgrid">
+      <div><b id="rWpm">0</b><span>WPM</span></div>
+      <div><b id="rAcc">0%</b><span>正確率</span></div>
+      <div><b id="rTime">0s</b><span>總時間</span></div>
+    </div>
+    <div class="row">
+      <button class="cap esc" id="againBtn" type="button">再玩一次</button>
+      <button class="cap" id="backBtn" type="button">選其他關卡</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>把左手食指放在 <strong>F</strong>、右手食指放在 <strong>J</strong>，這兩顆鍵上有小凸點，是手指回家的位置 🏠</p>
+    <p id="counter" class="counter" hidden>本站累計瀏覽 <strong id="view-count">–</strong> 次</p>
+    <p class="small"><a href="../">← 回侯政宏的其他站</a></p>
+  </footer>
+</div>
+
+<script src="app.js"></script>
+<script src="counter.js"></script>
+</body>
+</html>
