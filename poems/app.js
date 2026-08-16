@@ -141,6 +141,17 @@
     var list = $('poemList');
 
     // 一個字配一個注音，注音直排在字的右邊（課本的樣子）
+    // 聲調要跟注音符號分開：二三四聲放在注音右下角，輕聲放在最上面。
+    var TONES = 'ˊˇˋ';
+
+    function splitTone(read) {
+      if (!read) return { body: '', tone: '', light: false };
+      if (read.charAt(0) === '˙') return { body: read.slice(1), tone: '˙', light: true };
+      var last = read.charAt(read.length - 1);
+      if (TONES.indexOf(last) >= 0) return { body: read.slice(0, -1), tone: last, light: false };
+      return { body: read, tone: '', light: false };   // 一聲不標
+    }
+
     function ruby(lines, zy) {
       var reads = (zy || '').split(' ');
       var i = 0;
@@ -151,6 +162,7 @@
         for (var k = 0; k < line.length; k++) {
           var ch = line.charAt(k);
           if (ch >= '一' && ch <= '鿿') {
+            var parts = splitTone(reads[i++] || '');
             var z = document.createElement('span');
             z.className = 'z';
             var c = document.createElement('span');
@@ -158,7 +170,16 @@
             c.textContent = ch;
             var p = document.createElement('span');
             p.className = 'p';
-            p.textContent = reads[i++] || '';
+            var b = document.createElement('span');
+            b.className = 'b';
+            b.textContent = parts.body;
+            p.appendChild(b);
+            if (parts.tone) {
+              var t = document.createElement('span');
+              t.className = parts.light ? 't light' : 't';
+              t.textContent = parts.tone;
+              p.appendChild(t);
+            }
             z.appendChild(c); z.appendChild(p);
             ln.appendChild(z);
           } else {

@@ -134,17 +134,27 @@ table.plan{border-collapse:collapse;width:100%;font-size:16px}
 
 /* 原文 */
 .text{
-  font-family:var(--kai);font-size:27px;line-height:2.5;
-  padding:6px 0 10px;letter-spacing:2px;
+  font-family:var(--kai);font-size:27px;line-height:2.7;
+  padding:6px 0 10px;letter-spacing:0;
 }
 .text .ln{display:block}
-/* 一個字＋右邊直排的注音，就是課本的樣子 */
-.z{display:inline-flex;align-items:flex-start}
+/* 一個字＋右邊的注音，就是課本的樣子：
+   注音符號直排貼著字，聲調另外一小欄放在注音的右下角。 */
+.z{display:inline-flex;align-items:center;margin-right:.34em;vertical-align:baseline}
+.z .c{line-height:1.1}
 .z .p{
-  writing-mode:vertical-rl;font-family:var(--sans);font-size:.38em;line-height:1.05;
-  color:var(--ink-2);margin-left:.04em;letter-spacing:0;white-space:nowrap;
-  padding-top:.12em;
+  display:flex;align-items:stretch;margin-left:.06em;
+  font-family:var(--sans);font-size:.4em;line-height:1;color:var(--ink-2);
+  white-space:nowrap;
 }
+.z .p .b{
+  writing-mode:vertical-rl;text-orientation:upright;
+  letter-spacing:.06em;line-height:1;
+}
+/* 聲調：二三四聲靠注音的下緣，輕聲放在最上面 */
+.z .p .t{align-self:flex-end;margin:0 0 .08em .04em}
+.z .p .t.light{align-self:flex-start;margin:.02em 0 0 .04em}
+body.nozy .z{margin-right:.12em}
 body.nozy .z .p{display:none}
 
 .rows{display:grid;gap:12px;margin-top:6px}
@@ -210,7 +220,7 @@ footer .counter strong{color:var(--seal);font-variant-numeric:tabular-nums}
   body{font-size:16px}
   h1{font-size:25px}
   .authorlist,.how{grid-template-columns:1fr}
-  .text{font-size:23px;line-height:2.4}
+  .text{font-size:23px;line-height:2.6}
   .row{grid-template-columns:1fr;gap:4px}
   .row .k{justify-self:start;padding:2px 10px}
 }
