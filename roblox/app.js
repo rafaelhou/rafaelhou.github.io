@@ -38,19 +38,45 @@
     });
     if (!('IntersectionObserver' in window)) return;
 
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        links.forEach(function (a) { a.classList.remove('on'); });
-        if (map[en.target.id]) {
-          map[en.target.id].classList.add('on');
-          // 讓選中的那顆捲進視線（手機上導覽列是橫向的）
-          map[en.target.id].scrollIntoView({ block: 'nearest', inline: 'nearest' });
-        }
-      });
-    }, { rootMargin: '-100px 0px -65% 0px' });
+    var strip = document.querySelector('.tocin');
 
-    Object.keys(map).forEach(function (id) { io.observe($(id)); });
+    // 只動導覽列自己的橫向捲動。
+    // （原本用 scrollIntoView，它會連整個頁面一起捲——使用者往下滑時被往回拉，
+    //   點章節時也會把正在進行的捲動打斷，跳不到目的地。）
+    function reveal(a) {
+      if (!strip) return;
+      var pad = 12;
+      var l = a.offsetLeft, r = l + a.offsetWidth;
+      var vl = strip.scrollLeft, vr = vl + strip.clientWidth;
+      if (l < vl + pad) strip.scrollLeft = Math.max(0, l - pad);
+      else if (r > vr - pad) strip.scrollLeft = r - strip.clientWidth + pad;
+    }
+
+    // 用捲動位置直接算「現在在哪一節」：越過導覽列下緣的最後一節就是它。
+    // （章節長短差很多，用 IntersectionObserver 會同時有兩節在框裡，標錯。）
+    var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); })
+                    .filter(Boolean);
+    var cur = null, ticking = false;
+
+    function update() {
+      ticking = false;
+      var line = 70;                       // 導覽列下方一點點
+      var now = secs[0];
+      for (var i = 0; i < secs.length; i++) {
+        if (secs[i].getBoundingClientRect().top <= line) now = secs[i]; else break;
+      }
+      if (now === cur) return;             // 沒換就什麼都不做
+      cur = now;
+      links.forEach(function (a) { a.classList.remove('on'); });
+      var a = map[now.id];
+      if (a) { a.classList.add('on'); reveal(a); }
+    }
+
+    addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    addEventListener('resize', update);
+    update();
   })();
 
   /* ── 進度表 ── */
