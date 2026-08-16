@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<title>Roblox 學習手冊 · 給 Aaron</title>
+<meta name="description" content="從玩家變成做遊戲的人。Roblox Studio 的五個視窗、第一支程式、Luau 的五個基本觀念、闖關遊戲怎麼做，加上一張自己打勾的進度表和 40 個英文名詞對照。">
+<meta name="theme-color" content="#E1332D">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.svg">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap barin">
+    <div class="logo">
+      <span class="cube" aria-hidden="true"></span>
+      <span>
+        <b>Roblox 學習手冊</b>
+        <small>給 Aaron · 下學期開始</small>
+      </span>
+    </div>
+    <button type="button" id="themeBtn" class="ghost" aria-label="切換深色淺色">◐</button>
+  </div>
+</header>
+
+<nav class="toc" id="toc">
+  <div class="wrap tocin">
+    <a href="#what">兩個 Roblox</a>
+    <a href="#ready">開始前</a>
+    <a href="#studio">五個視窗</a>
+    <a href="#first">第一支程式</a>
+    <a href="#luau">Luau 五件事</a>
+    <a href="#stuck">卡住時</a>
+    <a href="#plan">進度表</a>
+    <a href="#terms">名詞對照</a>
+    <a href="#quiz">小測驗</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ═══ 開場 ═══ -->
+  <section class="hero">
+    <p class="kicker">FROM PLAYER TO MAKER</p>
+    <h1>你已經會玩了。<br>下學期開始，換你做。</h1>
+    <p class="lede">
+      你在 Roblox 上玩過的每一個遊戲，都是某個人做出來的——有些是公司，
+      但<b>有很多是跟你差不多大的小孩</b>。他們用的工具你等一下就會裝好，而且是免費的。
+    </p>
+    <p class="lede">
+      這本手冊不會幫你把遊戲做完。它是你卡住的時候可以翻回來的地方：
+      英文名詞看不懂、程式跑不動、忘記下一步要做什麼，都來這裡找。
+    </p>
+  </section>
+
+  <!-- ═══ 兩個 Roblox ═══ -->
+  <section id="what">
+    <h2><span class="num">01</span>先搞懂：Roblox 有兩個</h2>
+    <p>很多人以為「學 Roblox」是學怎麼玩。不是。你要學的是右邊那個。</p>
+
+    <div class="two">
+      <div class="card">
+        <div class="ct">玩的那個</div>
+        <h3>Roblox</h3>
+        <p class="dim">手機、平板、電腦都能開</p>
+        <ul>
+          <li>玩別人做的遊戲</li>
+          <li>跟朋友一起跑跳</li>
+          <li>你現在做的事</li>
+        </ul>
+      </div>
+      <div class="card hi">
+        <div class="ct">做的那個</div>
+        <h3>Roblox Studio</h3>
+        <p class="dim">只有 Windows 和 Mac 電腦能裝，平板做不了</p>
+        <ul>
+          <li>蓋 3D 場景、放積木</li>
+          <li>寫程式讓東西會動</li>
+          <li>發布出去給全世界玩</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="note">
+      <b>順帶一提</b>：做遊戲的時候你是一個人在電腦前面工作的，不會跟陌生人聊天。
+      Studio 是一個安靜的工具，跟你平常玩的那個熱鬧的 Roblox 不一樣。
+    </p>
+  </section>
+
+  <!-- ═══ 開始前 ═══ -->
+  <section id="ready">
+    <h2><span class="num">02</span>開始前要準備的三樣東西</h2>
+    <ol class="steps">
+      <li>
+        <b>一台電腦</b>
+        <p>Windows 或 Mac 都可以。iPad 不行——iPad 可以玩 Roblox，但裝不了 Studio。</p>
+      </li>
+      <li>
+        <b>一個 Roblox 帳號</b>
+        <p>用你現在玩的那個就好。裝 Studio 的時候用同一個帳號登入，做出來的東西才會存在你的帳號下面。</p>
+      </li>
+      <li>
+        <b>爸媽把安全設定調好</b>
+        <p>這件事讓爸爸做（這頁最下面有給他看的說明）。你只要知道：你的帳號會被設定成小孩帳號，
+        聊天功能會受限制，這是正常的，不是壞掉。</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ═══ 五個視窗 ═══ -->
+  <section id="studio">
+    <h2><span class="num">03</span>Studio 打開長這樣</h2>
+    <p>第一次打開會覺得「怎麼這麼多東西」。其實你只要先認得<b>五塊</b>就夠開始了。</p>
+
+    <figure class="uifig">
+      <svg viewBox="0 0 600 360" role="img" aria-labelledby="uititle">
+        <title id="uititle">Roblox Studio 的介面分成工具列、畫面、總管、屬性、輸出視窗五塊</title>
+        <rect x="0" y="0" width="600" height="360" rx="10" fill="var(--ui-bg)"/>
+        <!-- 工具列 -->
+        <rect x="10" y="10" width="580" height="34" rx="6" fill="var(--ui-bar)"/>
+        <g fill="var(--ui-key)"><rect x="20" y="20" width="46" height="14" rx="3"/><rect x="74" y="20" width="34" height="14" rx="3"/><rect x="116" y="20" width="34" height="14" rx="3"/></g>
+        <circle cx="300" cy="27" r="9" fill="var(--run)"/>
+        <path d="M297 22 L306 27 L297 32 Z" fill="#fff"/>
+        <!-- 畫面 -->
+        <rect x="10" y="52" width="400" height="230" rx="6" fill="var(--ui-view)"/>
+        <rect x="10" y="222" width="400" height="60" rx="6" fill="var(--ui-ground)"/>
+        <rect x="150" y="180" width="60" height="44" rx="3" fill="var(--accent)"/>
+        <rect x="230" y="196" width="44" height="28" rx="3" fill="var(--ui-key)"/>
+        <!-- 總管 -->
+        <rect x="420" y="52" width="170" height="130" rx="6" fill="var(--ui-panel)"/>
+        <g fill="var(--ui-key)"><rect x="432" y="64" width="90" height="8" rx="4"/><rect x="444" y="82" width="70" height="8" rx="4"/><rect x="444" y="100" width="86" height="8" rx="4"/><rect x="456" y="118" width="60" height="8" rx="4"/></g>
+        <!-- 屬性 -->
+        <rect x="420" y="190" width="170" height="92" rx="6" fill="var(--ui-panel)"/>
+        <g fill="var(--ui-key)"><rect x="432" y="202" width="50" height="8" rx="4"/><rect x="510" y="202" width="34" height="8" rx="4"/><rect x="432" y="220" width="50" height="8" rx="4"/><rect x="510" y="220" width="34" height="8" rx="4"/><rect x="432" y="238" width="50" height="8" rx="4"/><rect x="510" y="238" width="34" height="8" rx="4"/></g>
+        <!-- 輸出 -->
+        <rect x="10" y="290" width="580" height="60" rx="6" fill="var(--ui-out)"/>
+        <g fill="var(--ui-key)"><rect x="22" y="302" width="150" height="7" rx="3.5"/></g>
+        <rect x="22" y="320" width="200" height="7" rx="3.5" fill="var(--bad)"/>
+        <!-- 標號 -->
+        <g class="tag">
+          <circle cx="300" cy="27" r="15" fill="none" stroke="var(--accent)" stroke-width="2"/>
+          <text x="205" y="150" >1</text><text x="500" y="70">2</text>
+          <text x="500" y="208">3</text><text x="40" y="316">4</text>
+        </g>
+      </svg>
+      <figcaption>Studio 的樣子（示意圖）。中間綠色那個圓圈是 ▶ 執行鍵。</figcaption>
+    </figure>
+
+    <div class="panes">
+      <div class="pane"><span class="pn">1</span><b>Viewport 畫面</b><p>中間最大那塊。你在這裡蓋東西、轉視角。右鍵拖曳轉頭，W A S D 走動。</p></div>
+      <div class="pane"><span class="pn">2</span><b>Explorer 總管</b><p>右上角的清單。你放進遊戲的每一樣東西都會出現在這裡，像資料夾一樣。</p></div>
+      <div class="pane"><span class="pn">3</span><b>Properties 屬性</b><p>Explorer 下面。選到什麼，這裡就顯示它的顏色、大小、有沒有被釘住。</p></div>
+      <div class="pane"><span class="pn">4</span><b>Output 輸出視窗</b><p>最下面。程式跟你講話的地方，紅字＝出事了。這是你最好的朋友。</p></div>
+      <div class="pane"><span class="pn">▶</span><b>Play 執行</b><p>上面那個綠色三角形。按下去就會變成玩家，可以自己試玩。按 Stop 回來繼續蓋。</p></div>
+    </div>
+  </section>
+
+  <!-- ═══ 第一支程式 ═══ -->
+  <section id="first">
+    <h2><span class="num">04</span>你的第一支程式</h2>
+    <p>目標很小：<b>做一個踩到會變色的積木</b>。做完這個，你就懂了 Roblox 程式的一半。</p>
+
+    <ol class="steps big">
+      <li>
+        <b>放一個積木</b>
+        <p>工具列 Model → Part。它會出現在畫面中間。</p>
+      </li>
+      <li>
+        <b>把它釘住</b>
+        <p>在 Properties 裡找到 <code>Anchored</code>，打勾。沒打勾的話一按 ▶ 它就掉下去了。</p>
+      </li>
+      <li>
+        <b>塞一個腳本進去</b>
+        <p>在 Explorer 對著這個 Part 按 <b>＋</b> → Script。它會自動打開，裡面已經有一行 <code>print("Hello world!")</code>。</p>
+      </li>
+      <li>
+        <b>把裡面的字換成這段</b>
+        <pre><code><span class="c">-- 這個腳本住在哪個積木裡</span>
+<span class="k">local</span> part = script.Parent
+
+part.Touched:<span class="f">Connect</span>(<span class="k">function</span>(hit)
+  part.BrickColor = BrickColor.<span class="f">new</span>(<span class="s">"Bright red"</span>)
+  <span class="f">print</span>(<span class="s">"有人踩到我了"</span>)
+<span class="k">end</span>)</code></pre>
+      </li>
+      <li>
+        <b>按 ▶ 然後去踩它</b>
+        <p>積木變紅色，Output 出現「有人踩到我了」。<b>成功了。</b></p>
+      </li>
+    </ol>
+
+    <p class="note">
+      <b>看懂這五行，比抄對它重要。</b>
+      第一行是「找到我住的積木，叫它 part」。第三行是「當 part 被碰到的時候，做下面這些事」。
+      中間那兩行就是要做的事。<code>end)</code> 是結尾，忘記寫它程式就會壞。
+    </p>
+  </section>
+
+  <!-- ═══ Luau 五件事 ═══ -->
+  <section id="luau">
+    <h2><span class="num">05</span>Luau 只要先會五件事</h2>
+    <p>Roblox 用的語言叫 <b>Luau</b>。它跟你可能玩過的積木式程式（Scratch）不一樣，要自己打字。但要記的東西沒有想像中多。</p>
+
+    <div class="lu">
+      <article>
+        <h3>① 取名字 <code>local</code></h3>
+        <p>把一個東西取一個短名字，之後就用這個名字叫它。</p>
+        <pre><code><span class="k">local</span> door = script.Parent
+<span class="k">local</span> speed = <span class="n">16</span></code></pre>
+      </article>
+
+      <article>
+        <h3>② 如果 <code>if</code></h3>
+        <p>條件成立才做。注意結尾要有 <code>end</code>。</p>
+        <pre><code><span class="k">if</span> speed &gt; <span class="n">20</span> <span class="k">then</span>
+  <span class="f">print</span>(<span class="s">"太快了"</span>)
+<span class="k">end</span></code></pre>
+      </article>
+
+      <article>
+        <h3>③ 重複 <code>for</code></h3>
+        <p>數著做幾次。<code>task.wait(1)</code> 是等一秒。</p>
+        <pre><code><span class="k">for</span> i = <span class="n">1</span>, <span class="n">3</span> <span class="k">do</span>
+  <span class="f">print</span>(<span class="s">"倒數 "</span> .. i)
+  task.<span class="f">wait</span>(<span class="n">1</span>)
+<span class="k">end</span></code></pre>
+      </article>
+
+      <article>
+        <h3>④ 事件 <code>:Connect()</code></h3>
+        <p>「當某件事發生的時候」。Roblox 大部分的程式都長這樣。</p>
+        <pre><code>part.Touched:<span class="f">Connect</span>(<span class="k">function</span>(hit)
+  <span class="f">print</span>(<span class="s">"碰到了"</span>)
+<span class="k">end</span>)</code></pre>
+      </article>
+
+      <article>
+        <h3>⑤ 一包事情 <code>function</code></h3>
+        <p>把常做的事包起來取名字，之後叫名字就好。</p>
+        <pre><code><span class="k">local function</span> <span class="f">boom</span>()
+  <span class="f">print</span>(<span class="s">"爆炸"</span>)
+<span class="k">end</span>
+
+<span class="f">boom</span>()</code></pre>
+      </article>
+
+      <article class="tip">
+        <h3>兩個會害你很久的小事</h3>
+        <p><b>大小寫算不一樣。</b> <code>part</code> 和 <code>Part</code> 在 Luau 是兩個不同的東西。</p>
+        <p><b>舊教學會寫 <code>wait()</code>。</b> 現在請寫 <code>task.wait()</code>，比較準也比較不會出問題。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═══ 卡住時 ═══ -->
+  <section id="stuck">
+    <h2><span class="num">06</span>程式不動的時候</h2>
+    <p>第一件事永遠是：<b>看 Output 視窗</b>。紅色的字是程式在告訴你哪裡壞了。</p>
+
+    <div class="errs">
+      <div class="err">
+        <code class="red">attempt to index nil with 'Touched'</code>
+        <p><b>意思</b>：我找不到你說的那個東西。<br><b>通常是</b>：名字打錯了，或是東西不在你以為的地方。回 Explorer 對一下名字。</p>
+      </div>
+      <div class="err">
+        <code class="red">Expected 'end' (to close 'function')</code>
+        <p><b>意思</b>：你少寫了結尾。<br><b>通常是</b>：<code>end</code> 或 <code>end)</code> 忘了寫。每個 <code>function</code>、<code>if</code>、<code>for</code> 都要有一個 <code>end</code> 收尾。</p>
+      </div>
+      <div class="err">
+        <code class="red">（沒有紅字，但什麼事都沒發生）</code>
+        <p><b>意思</b>：程式根本沒跑到。<br><b>怎麼查</b>：在第一行加 <code>print("我有跑")</code>，按 ▶。沒印出來＝腳本放錯地方了。</p>
+      </div>
+      <div class="err">
+        <code class="red">積木一按 ▶ 就掉下去</code>
+        <p><b>意思</b>：忘了 Anchored。<br><b>修法</b>：Properties → Anchored 打勾。這是所有人的第一名錯誤，你不孤單。</p>
+      </div>
+    </div>
+
+    <p class="note">
+      <b>問問題的順序</b>：① 看 Output ② 加 print 找出跑到哪一行 ③ 回來翻這本手冊
+      ④ 問老師或爸爸。前三步自己做過，第四步問出來的問題會好很多。
+    </p>
+  </section>
+
+  <!-- ═══ 進度表 ═══ -->
+  <section id="plan">
+    <h2><span class="num">07</span>進度表</h2>
+    <p>五個階段。做完一件就打一個勾——勾會存在這台電腦裡，下次打開還在。</p>
+    <div class="prog"><div class="bar-out"><div class="bar-in" id="progBar"></div></div><span id="progTxt">0 / 0</span></div>
+    <div id="stages"></div>
+    <button type="button" class="ghost small" id="resetBtn">清除所有勾選</button>
+  </section>
+
+  <!-- ═══ 名詞 ═══ -->
+  <section id="terms">
+    <h2><span class="num">08</span>名詞對照</h2>
+    <p>Studio 裡面全部是英文。看到不認識的字就來這裡查。</p>
+    <div class="tools">
+      <input type="search" id="termSearch" placeholder="打英文或中文都可以，例如 anchored、固定" aria-label="搜尋名詞">
+      <div class="cats" id="cats"></div>
+    </div>
+    <div id="termList" class="terms"></div>
+    <p class="dim" id="termCount"></p>
+  </section>
+
+  <!-- ═══ 測驗 ═══ -->
+  <section id="quiz">
+    <h2><span class="num">09</span>看得懂嗎</h2>
+    <p>不是考背誦，是考「你看得懂這段程式在幹嘛」。這才是真的會了。</p>
+    <div id="quizList"></div>
+  </section>
+
+  <!-- ═══ 家長 ═══ -->
+  <section id="parent">
+    <details>
+      <summary>給爸爸媽媽：2026 年的 Roblox 安全設定</summary>
+      <div class="pbody">
+        <p>
+          <b>2026 年 1 月 7 日起，聊天功能需要通過年齡驗證</b>，全球適用。
+          方式是臉部年齡估計：錄一段自拍影片，由第三方服務判斷年齡區間，不需要證件；
+          Roblox 表示影像在處理後即刪除。
+        </p>
+        <p>
+          驗證後會被分到六個年齡層之一（Under 9／9–12／13–15／16–17／18–20／21+），
+          <b>只能跟同一層或相鄰層的人用文字聊天</b>；沒有通過驗證的帳號，聊天功能會整個關閉。
+        </p>
+        <p>
+          家長控制已改為<b>用家長自己的帳號連結管理</b>，不再是四位數 PIN。
+          可以封鎖特定遊戲，管控範圍延長到 16 歲。
+        </p>
+        <p>
+          <b>對這本手冊的影響：沒有。</b>Roblox Studio 是本機的開發工具，
+          做遊戲的過程不涉及跟陌生人互動。真正要先設定好的是<b>付款與 Robux 消費限制</b>。
+        </p>
+        <p class="dim">
+          資料來源：<a href="https://about.roblox.com/newsroom/2025/11/roblox-requires-age-checks-limits-minor-and-adult-chat" target="_blank" rel="noopener">Roblox 官方公告</a>、
+          <a href="https://about.roblox.com/age-estimation" target="_blank" rel="noopener">Facial Age Estimation 說明</a>。
+          官方學習資源：<a href="https://create.roblox.com/docs/tutorials/curriculums/core" target="_blank" rel="noopener">Core curriculum</a>、
+          <a href="https://create.roblox.com/docs/zh-tw/luau" target="_blank" rel="noopener">Luau 中文文件</a>。
+        </p>
+      </div>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="big">先做出一個很爛但會動的東西，再把它變好。</p>
+    <p id="counter" class="counter" hidden>本站累計瀏覽 <strong id="view-count">–</strong> 次</p>
+    <p class="small"><a href="../">← 回侯政宏的其他站</a> · 個人整理，非官方教材</p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script src="counter.js"></script>
+</body>
+</html>

@@ -10,7 +10,7 @@
 
 | 系列 | 內容 |
 | --- | --- |
-| Series 01 · 陪孩子玩 | [麥塊家長指南](https://minecraft-parent-guide.pages.dev)、[和八歲孩子玩 Steam](https://steam-with-kids.pages.dev) |
+| Series 01 · 陪孩子玩 | [麥塊家長指南](https://minecraft-parent-guide.pages.dev)、[和八歲孩子玩 Steam](https://steam-with-kids.pages.dev)、[Roblox 學習手冊](roblox/) |
 | Series 02 · 陪孩子學 | [錢會自己長大嗎？](https://kids-investing.pages.dev)、[WMI 備賽計畫](https://wmi-prep.pages.dev)、[打字小英雄](typing-hero/) |
 | Series 03 · 我的學習筆記 | [AI 素養教育工作坊課堂筆記](https://ai-literacy-notes.pages.dev) |
 
@@ -18,6 +18,7 @@
 
 | 子目錄 | 內容 |
 | --- | --- |
+| [`roblox/`](roblox/) | Roblox 學習手冊——Roblox Studio 與 Luau 入門，含進度表、名詞對照與小測驗 |
 | [`typing-hero/`](typing-hero/) | 打字小英雄——英文打字練習，鍵盤會亮起下一個要按的鍵並以顏色標示手指 |
 | [`idiom-3d/`](idiom-3d/) | 一毛不拔立體作品施工圖 |
 

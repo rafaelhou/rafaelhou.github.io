@@ -1,0 +1,281 @@
+/* ═══════════════════════════════════════════════════════════
+   Roblox 學習手冊 — 版面
+   視覺出發點是 Studio 本身：淺色的工作區、深色的程式碼編輯器、
+   工具列上那顆綠色的 ▶。程式碼區塊在兩種主題下都保持深色，
+   因為那就是 Studio 裡的樣子。
+   ═══════════════════════════════════════════════════════════ */
+
+:root{
+  --bg:#F1F3F6;
+  --surface:#FFFFFF;
+  --surface-2:#E9ECF1;
+  --ink:#16181D;
+  --dim:#5A6170;
+  --line:#DCE0E7;
+  --accent:#E1332D;        /* Roblox 紅 */
+  --accent-soft:#FDECEB;
+  --run:#2FA84F;           /* Studio 的 ▶ 綠 */
+  --bad:#E1332D;
+
+  /* 介面示意圖 */
+  --ui-bg:#C9CED8; --ui-bar:#EDEFF3; --ui-panel:#F7F8FA;
+  --ui-view:#AFC7DC; --ui-ground:#8FB37E; --ui-out:#1B1E26; --ui-key:#9AA3B2;
+
+  /* 程式碼：兩種主題都用同一組深色 */
+  --code-bg:#1B1E26; --code-ink:#DCE1EA; --code-line:#2B303B;
+  --c-k:#F97583; --c-s:#9ECBFF; --c-c:#7C8595; --c-n:#F0A868; --c-f:#B392F0;
+
+  --mono:Consolas,"SF Mono",ui-monospace,Menlo,monospace;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --wrap:880px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#12141A; --surface:#1C1F26; --surface-2:#23272F;
+    --ink:#E7EAF0; --dim:#98A0AE; --line:#2C313B;
+    --accent:#FF5A52; --accent-soft:#2A1A1A;
+    --ui-bg:#2A2F3A; --ui-bar:#3A404C; --ui-panel:#333945;
+    --ui-view:#3E5468; --ui-ground:#4C6B43; --ui-key:#6C7583;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12141A; --surface:#1C1F26; --surface-2:#23272F;
+  --ink:#E7EAF0; --dim:#98A0AE; --line:#2C313B;
+  --accent:#FF5A52; --accent-soft:#2A1A1A;
+  --ui-bg:#2A2F3A; --ui-bar:#3A404C; --ui-panel:#333945;
+  --ui-view:#3E5468; --ui-ground:#4C6B43; --ui-key:#6C7583;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+a{color:var(--accent)}
+
+/* ── 頁首 ── */
+.bar{background:var(--surface);border-bottom:1px solid var(--line);position:relative;z-index:5}
+.barin{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;padding-bottom:14px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo b{display:block;font-size:18px;line-height:1.3}
+.logo small{display:block;color:var(--dim);font-size:13px}
+.cube{
+  width:30px;height:30px;flex:none;border-radius:7px;background:var(--accent);
+  box-shadow:inset 0 -6px 0 rgba(0,0,0,.22);transform:rotate(-8deg);
+}
+.ghost{
+  font:inherit;cursor:pointer;color:var(--ink);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:6px 12px;
+}
+.ghost:hover{border-color:var(--accent)}
+.ghost:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ghost.small{font-size:14px;padding:5px 10px;color:var(--dim)}
+
+/* ── 章節導覽 ── */
+.toc{
+  position:sticky;top:0;z-index:4;background:var(--surface);
+  border-bottom:1px solid var(--line);
+}
+.tocin{display:flex;gap:4px;overflow-x:auto;padding-top:8px;padding-bottom:8px;scrollbar-width:thin}
+.toc a{
+  flex:none;text-decoration:none;color:var(--dim);font-size:14px;
+  padding:5px 11px;border-radius:99px;white-space:nowrap;
+}
+.toc a:hover{background:var(--surface-2);color:var(--ink)}
+.toc a.on{background:var(--accent);color:#fff}
+
+/* ── 通用排版 ── */
+main{padding-bottom:60px}
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+section:last-child{border-bottom:0}
+h1{font-size:38px;line-height:1.25;margin:0 0 18px;letter-spacing:-.5px;text-wrap:balance}
+h2{font-size:25px;margin:0 0 14px;display:flex;align-items:baseline;gap:12px;text-wrap:balance}
+h3{font-size:19px;margin:0 0 8px}
+p{margin:0 0 14px}
+.dim{color:var(--dim)}
+.kicker{
+  font-family:var(--mono);font-size:12px;letter-spacing:3px;color:var(--accent);
+  margin:0 0 10px;text-transform:uppercase;
+}
+.num{
+  font-family:var(--mono);font-size:13px;color:var(--accent);
+  border:1px solid currentColor;border-radius:5px;padding:1px 6px;flex:none;
+}
+.hero{padding-top:52px}
+.lede{font-size:18px;color:var(--dim);max-width:62ch}
+.lede b{color:var(--ink)}
+.note{
+  background:var(--accent-soft);border-left:4px solid var(--accent);
+  padding:14px 18px;border-radius:0 8px 8px 0;margin:22px 0 0;font-size:16px;
+}
+code{
+  font-family:var(--mono);font-size:.88em;background:var(--surface-2);
+  padding:2px 6px;border-radius:5px;
+}
+
+/* grid 的子項預設 min-width:auto，裡面有寬的 <pre> 就會把整欄撐爆；
+   設成 0 才輪得到 pre 自己橫向捲動。 */
+.card,.pane,.lu article,.err,.stage,.term,.q{min-width:0}
+
+/* ── 程式碼區塊：永遠是 Studio 的深色 ── */
+pre{
+  max-width:100%;
+  background:var(--code-bg);color:var(--code-ink);border:1px solid var(--code-line);
+  border-radius:10px;padding:16px 18px;overflow-x:auto;margin:14px 0 0;
+  font-size:15px;line-height:1.7;
+}
+pre code{background:none;padding:0;font-size:inherit;color:inherit;white-space:pre}
+pre .k{color:var(--c-k)}
+pre .s{color:var(--c-s)}
+pre .c{color:var(--c-c);font-style:italic}
+pre .n{color:var(--c-n)}
+pre .f{color:var(--c-f)}
+
+/* ── 兩張對照卡 ── */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.card.hi{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.card .ct{font-size:13px;letter-spacing:2px;color:var(--dim);margin-bottom:2px}
+.card h3{margin:0 0 4px}
+.card ul{margin:12px 0 0;padding-left:20px}
+.card li{margin-bottom:4px}
+
+/* ── 步驟 ── */
+.steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0}
+.steps li{
+  counter-increment:s;position:relative;padding:0 0 4px 46px;margin-bottom:22px;
+}
+.steps li::before{
+  content:counter(s);position:absolute;left:0;top:2px;
+  width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:15px;font-weight:bold;
+}
+/* 只有直接子層的 <b> 才是標題；段落裡的 <b> 要留在行內 */
+.steps li > b{display:block;font-size:18px;margin-bottom:2px}
+.steps li p{margin:0;color:var(--dim)}
+.steps.big li{margin-bottom:26px}
+
+/* ── 介面示意圖 ── */
+.uifig{margin:20px 0 0}
+.uifig svg{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line)}
+.uifig .tag text{
+  font-family:var(--mono);font-size:15px;font-weight:bold;fill:#fff;
+  paint-order:stroke;stroke:var(--accent);stroke-width:9px;stroke-linejoin:round;
+}
+.uifig figcaption{color:var(--dim);font-size:14px;margin-top:8px;text-align:center}
+.panes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:20px}
+.pane{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.pane .pn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:22px;height:22px;border-radius:6px;background:var(--accent);color:#fff;
+  font-family:var(--mono);font-size:13px;margin-right:8px;vertical-align:-4px;
+}
+.pane b{font-size:16px}
+.pane p{margin:6px 0 0;color:var(--dim);font-size:15px;line-height:1.7}
+
+/* ── Luau 五件事 ── */
+.lu{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.lu article{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.lu h3{font-size:17px}
+.lu p{margin:0;color:var(--dim);font-size:15px}
+.lu article.tip{border-color:var(--accent);background:var(--accent-soft)}
+.lu article.tip p{color:var(--ink);margin-bottom:8px}
+
+/* ── 錯誤訊息 ── */
+.errs{display:grid;gap:12px;margin-top:8px}
+.err{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--bad);border-radius:0 10px 10px 0;padding:14px 18px}
+.err code.red{
+  display:block;background:var(--code-bg);color:#FF8B8B;border-radius:6px;
+  padding:8px 12px;font-size:14px;margin-bottom:8px;overflow-x:auto;
+}
+.err p{margin:0;font-size:15px;color:var(--dim)}
+.err b{color:var(--ink)}
+
+/* ── 進度表 ── */
+.prog{display:flex;align-items:center;gap:12px;margin:0 0 20px}
+.bar-out{flex:1;height:10px;background:var(--surface-2);border-radius:99px;overflow:hidden}
+.bar-in{height:100%;width:0;background:var(--run);border-radius:99px;transition:width .3s ease}
+#progTxt{font-family:var(--mono);font-size:14px;color:var(--dim);font-variant-numeric:tabular-nums}
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.stage.done{border-color:var(--run)}
+.stage h3{display:flex;align-items:center;gap:10px;margin-bottom:2px}
+.stage .sn{
+  width:26px;height:26px;border-radius:8px;background:var(--surface-2);color:var(--dim);
+  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:14px;flex:none;
+}
+.stage.done .sn{background:var(--run);color:#fff}
+.stage .goal{color:var(--dim);font-size:15px;margin:0 0 12px}
+.stage label{
+  display:flex;gap:10px;align-items:flex-start;padding:7px 0;cursor:pointer;
+  border-top:1px solid var(--line);font-size:16px;line-height:1.7;
+}
+.stage label:hover{color:var(--accent)}
+.stage input{width:19px;height:19px;margin:5px 0 0;accent-color:var(--run);flex:none;cursor:pointer}
+.stage input:checked + span{color:var(--dim);text-decoration:line-through}
+
+/* ── 名詞 ── */
+.tools{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+#termSearch{
+  font:inherit;width:100%;padding:11px 14px;border-radius:10px;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+}
+#termSearch:focus{outline:3px solid var(--accent);outline-offset:1px;border-color:transparent}
+.cats{display:flex;gap:6px;flex-wrap:wrap}
+.cats button{
+  font:inherit;font-size:14px;cursor:pointer;padding:4px 12px;border-radius:99px;
+  border:1px solid var(--line);background:var(--surface);color:var(--dim);
+}
+.cats button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.term{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.term .en{font-family:var(--mono);font-size:15px;color:var(--accent);font-weight:bold}
+.term .zh{font-size:14px;color:var(--dim);margin-left:6px}
+.term p{margin:4px 0 0;font-size:14.5px;line-height:1.65;color:var(--dim)}
+
+/* ── 測驗 ── */
+.q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.q .qt{font-weight:bold;margin:14px 0 10px}
+.q .opts{display:grid;gap:8px}
+.q .opts button{
+  font:inherit;text-align:left;cursor:pointer;padding:10px 14px;border-radius:9px;
+  border:1px solid var(--line);background:var(--bg);color:var(--ink);line-height:1.6;
+}
+.q .opts button:hover:not(:disabled){border-color:var(--accent)}
+.q .opts button:disabled{cursor:default}
+.q .opts button.ok{border-color:var(--run);background:rgba(47,168,79,.14);font-weight:bold}
+.q .opts button.no{border-color:var(--bad);background:rgba(225,51,45,.12)}
+.q .why{
+  margin:12px 0 0;padding:10px 14px;border-radius:9px;background:var(--surface-2);
+  font-size:15px;line-height:1.7;
+}
+
+/* ── 家長區 ── */
+#parent details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 20px}
+#parent summary{cursor:pointer;padding:14px 0;font-weight:bold}
+#parent summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.pbody{padding-bottom:12px;font-size:16px}
+.pbody p{color:var(--dim)}
+.pbody b{color:var(--ink)}
+
+/* ── 頁尾 ── */
+footer{border-top:1px solid var(--line);padding:34px 0 50px;text-align:center;background:var(--surface)}
+footer .big{font-size:19px;font-weight:bold;margin-bottom:10px;text-wrap:balance}
+footer .small{font-size:14px;color:var(--dim)}
+footer .small a{color:inherit}
+footer .counter{font-size:14px;color:var(--dim)}
+footer .counter strong{color:var(--accent);font-variant-numeric:tabular-nums}
+
+[hidden]{display:none !important}
+@media (prefers-reduced-motion: reduce){*{transition:none !important;scroll-behavior:auto}}
+
+@media (max-width:700px){
+  body{font-size:16px}
+  h1{font-size:30px}
+  h2{font-size:22px}
+  .two,.lu,.terms{grid-template-columns:1fr}
+  .steps li{padding-left:40px}
+}
