@@ -1,0 +1,239 @@
+/* ═══════════════════════════════════════════════════════════
+   三上詩詞 — 版面
+   顏色只有三個來源：紙、墨、印泥。青瓷綠用來標朝代。
+   詩的原文用襯線（明體／楷體），說明用黑體——讓「原文」和
+   「別人寫的話」一眼分得出來。
+   ═══════════════════════════════════════════════════════════ */
+
+:root{
+  --paper:#EEF0EA;        /* 帶一點青的紙，不是暖米色 */
+  --card:#FBFBF8;
+  --ink:#1A1D1A;
+  --ink-2:#5B615A;
+  --line:#D3D8CE;
+  --seal:#A8352A;         /* 印泥紅 */
+  --seal-soft:#F6E9E6;
+  --celadon:#37696A;      /* 青瓷 */
+  --gold:#8C6A2F;
+
+  --serif:"Noto Serif TC","Songti TC","PMingLiU","MingLiU",serif;
+  --kai:"標楷體","DFKai-SB","Noto Serif TC",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --wrap:900px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#151815; --card:#1E221E; --ink:#E7EBE4; --ink-2:#98A096;
+    --line:#2E342E; --seal:#E0705F; --seal-soft:#2A1C19; --celadon:#7FB3AF; --gold:#C9A566;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#151815; --card:#1E221E; --ink:#E7EBE4; --ink-2:#98A096;
+  --line:#2E342E; --seal:#E0705F; --seal-soft:#2A1C19; --celadon:#7FB3AF; --gold:#C9A566;
+}
+
+*{box-sizing:border-box}
+html{scroll-padding-top:100px}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+a{color:var(--seal)}
+h1{font-size:30px;line-height:1.35;margin:0 0 12px;text-wrap:balance}
+h3{margin:0 0 6px;font-size:18px}
+p{margin:0 0 12px}
+.dim{color:var(--ink-2);font-size:15px}
+
+/* ── 頁首 ── */
+.top{background:var(--card);border-bottom:1px solid var(--line)}
+.topin{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand b{display:block;font-size:18px;line-height:1.3}
+.brand small{display:block;color:var(--ink-2);font-size:13px}
+.seal{
+  width:34px;height:34px;flex:none;border-radius:5px;background:var(--seal);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:20px;font-weight:bold;
+}
+.tools{display:flex;gap:8px}
+.btn{
+  font:inherit;font-size:15px;cursor:pointer;color:var(--ink);
+  background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:6px 12px;
+}
+.btn:hover{border-color:var(--seal)}
+.btn:focus-visible{outline:3px solid var(--seal);outline-offset:2px}
+.btn.on{background:var(--seal);border-color:var(--seal);color:#fff}
+.btn.solid{background:var(--seal);border-color:var(--seal);color:#fff;font-weight:bold}
+
+/* ── 分頁 ── */
+.tabs{position:sticky;top:0;z-index:4;background:var(--card);border-bottom:1px solid var(--line)}
+.tabsin{display:flex;gap:4px;overflow:auto hidden;padding:8px 20px}
+.tab{
+  flex:none;font:inherit;font-size:15px;cursor:pointer;white-space:nowrap;
+  background:none;border:0;border-radius:99px;padding:6px 14px;color:var(--ink-2);
+}
+.tab:hover{background:var(--paper);color:var(--ink)}
+.tab.on{background:var(--seal);color:#fff}
+.tab:focus-visible{outline:3px solid var(--seal);outline-offset:2px}
+
+main{padding:30px 0 60px}
+.lead{margin-bottom:22px}
+.lead p{max-width:60ch}
+.ov a{font-weight:bold}
+
+/* ── 進度表 ── */
+.tablewrap{overflow:auto hidden;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table.plan{border-collapse:collapse;width:100%;font-size:16px}
+.plan th,.plan td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+.plan th{background:var(--seal);color:#fff;font-weight:bold;font-size:14px;letter-spacing:1px;white-space:nowrap}
+.plan tbody tr:last-child td{border-bottom:0}
+.plan .wk{font-variant-numeric:tabular-nums;color:var(--ink-2);white-space:nowrap;width:1%}
+.plan .no{font-variant-numeric:tabular-nums;color:var(--ink-2);width:1%}
+.plan .tt{font-family:var(--serif);font-size:18px;font-weight:bold;white-space:nowrap}
+.plan .tt a{text-decoration:none;color:inherit;border-bottom:1px dotted var(--line)}
+.plan .tt a:hover{color:var(--seal);border-bottom-color:var(--seal)}
+.plan .au{white-space:nowrap}
+.plan .dy{
+  display:inline-block;font-size:12px;color:#fff;background:var(--celadon);
+  border-radius:4px;padding:0 5px;margin-right:6px;vertical-align:1px;
+}
+.plan .vd a{font-size:14px;white-space:nowrap}
+.printurl{display:none}
+.plan tr.brk td{background:var(--seal-soft);color:var(--ink-2);font-size:14px;text-align:center}
+.plan tr.brk b{color:var(--seal)}
+
+.printhead{display:none}
+.src{margin-top:12px;font-size:14px;color:var(--ink-2)}
+
+/* ── 詩卡 ── */
+.filters{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+#q{
+  font:inherit;width:100%;padding:11px 14px;border-radius:10px;
+  border:1px solid var(--line);background:var(--card);color:var(--ink);
+}
+#q:focus{outline:3px solid var(--seal);outline-offset:1px;border-color:transparent}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{
+  font:inherit;font-size:14px;cursor:pointer;padding:4px 12px;border-radius:99px;
+  border:1px solid var(--line);background:var(--card);color:var(--ink-2);
+}
+.chips button.on{background:var(--celadon);border-color:var(--celadon);color:#fff}
+
+.poemlist{display:flex;flex-direction:column;gap:18px}
+.poem{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 24px}
+.poem header{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.poem .wk{
+  font-size:13px;background:var(--seal);color:#fff;border-radius:4px;padding:1px 8px;
+  font-variant-numeric:tabular-nums;
+}
+.poem h2{font-family:var(--serif);font-size:26px;margin:0;letter-spacing:1px}
+.poem .by{color:var(--ink-2);font-size:15px}
+.poem .by b{color:var(--celadon)}
+
+/* 原文 */
+.text{
+  font-family:var(--kai);font-size:27px;line-height:2.5;
+  padding:6px 0 10px;letter-spacing:2px;
+}
+.text .ln{display:block}
+/* 一個字＋右邊直排的注音，就是課本的樣子 */
+.z{display:inline-flex;align-items:flex-start}
+.z .p{
+  writing-mode:vertical-rl;font-family:var(--sans);font-size:.38em;line-height:1.05;
+  color:var(--ink-2);margin-left:.04em;letter-spacing:0;white-space:nowrap;
+  padding-top:.12em;
+}
+body.nozy .z .p{display:none}
+
+.rows{display:grid;gap:12px;margin-top:6px}
+.row{display:grid;grid-template-columns:76px 1fr;gap:14px;align-items:start}
+.row .k{
+  font-size:14px;color:#fff;background:var(--celadon);border-radius:4px;
+  padding:2px 0;text-align:center;letter-spacing:1px;
+}
+.row .k.think{background:var(--seal)}
+.row .k.hard{background:var(--gold)}
+.row .v{font-size:16px;line-height:1.95}
+.row .v.think{font-weight:500}
+.hardlist{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:15px}
+.hardlist span b{font-family:var(--serif);font-size:18px;margin-right:2px}
+.hardlist span i{font-style:normal;color:var(--seal);margin-right:4px}
+.poem .note{
+  margin:14px 0 0;padding:10px 14px;background:var(--paper);border-left:3px solid var(--line);
+  border-radius:0 8px 8px 0;font-size:15px;color:var(--ink-2);
+}
+.poem .go{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+.poem .go a{
+  font-size:15px;text-decoration:none;border:1px solid var(--seal);color:var(--seal);
+  border-radius:8px;padding:6px 14px;
+}
+.poem .go a:hover{background:var(--seal);color:#fff}
+.poem .go .none{font-size:15px;color:var(--ink-2)}
+
+/* ── 作者 ── */
+.authorlist{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.author{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.author h3{font-family:var(--serif);font-size:22px;display:flex;align-items:baseline;gap:8px}
+.author .yr{font-size:13px;color:var(--ink-2);font-family:var(--sans);font-weight:normal}
+.author .tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
+.author .tags span{
+  font-size:13px;background:var(--seal-soft);color:var(--seal);
+  border-radius:99px;padding:2px 10px;
+}
+.author p{font-size:15.5px;margin:0 0 8px;line-height:1.9}
+.author .think{border-left:3px solid var(--seal);padding-left:12px;color:var(--ink)}
+.author .poems{margin-top:10px;font-size:14px;color:var(--ink-2)}
+.author .poems b{font-family:var(--serif);font-size:16px;color:var(--ink)}
+.author .vd{margin-top:10px;font-size:14px}
+
+/* ── 怎麼用 ── */
+.how{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.how article{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.how article.warn{border-color:var(--seal);background:var(--seal-soft)}
+.how p{margin:0;font-size:15.5px;line-height:1.9;color:var(--ink-2)}
+.how b{color:var(--ink)}
+
+/* ── 頁尾 ── */
+footer{border-top:1px solid var(--line);background:var(--card);padding:32px 0 46px;text-align:center}
+footer .big{font-family:var(--serif);font-size:19px;line-height:1.9;margin-bottom:10px}
+footer .small{font-size:14px;color:var(--ink-2)}
+footer .small a{color:inherit}
+footer .counter{font-size:14px;color:var(--ink-2)}
+footer .counter strong{color:var(--seal);font-variant-numeric:tabular-nums}
+
+[hidden]{display:none !important}
+@media (prefers-reduced-motion: reduce){*{transition:none !important}}
+
+@media (max-width:720px){
+  body{font-size:16px}
+  h1{font-size:25px}
+  .authorlist,.how{grid-template-columns:1fr}
+  .text{font-size:23px;line-height:2.4}
+  .row{grid-template-columns:1fr;gap:4px}
+  .row .k{justify-self:start;padding:2px 10px}
+}
+
+/* ══════════════ 列印：只印進度表 ══════════════ */
+@media print{
+  @page{size:A4;margin:14mm}
+  body{background:#fff;color:#000;font-size:11pt}
+  .top,.tabs,footer,.noprint,#view-poems,#view-authors,#view-how{display:none !important}
+  main{padding:0}
+  .wrap{max-width:none;padding:0}
+  .printhead{display:block;margin-bottom:8px;text-align:center}
+  .printhead b{font-size:15pt}
+  .printhead span{display:block;font-size:9pt;color:#555}
+  .tablewrap{border:0;border-radius:0;overflow:visible}
+  table.plan{font-size:10.5pt}
+  .plan th{background:#eee !important;color:#000;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .plan th,.plan td{border:.5pt solid #999;padding:4pt 6pt}
+  .plan .tt{font-size:12pt}
+  .plan .dy{background:#666 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .plan tr.brk td{background:#f4f4f4 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .plan .vd a{color:#000;text-decoration:none;font-size:8pt}
+  .printurl{display:block;font-size:7.5pt;color:#444;font-family:monospace}
+  .src{display:none}
+  tr{break-inside:avoid}
+}

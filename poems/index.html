@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<title>三上詩詞 · 一學年 23 首</title>
+<meta name="description" content="115 學年度三上詩詞學習。23 首詩的原文（附注音）、白話、作者當時在想什麼，加上老師排定的背誦進度與影片連結。">
+<meta name="theme-color" content="#A8352A">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.svg">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap topin">
+    <div class="brand">
+      <span class="seal" aria-hidden="true">詩</span>
+      <span>
+        <b>三上詩詞</b>
+        <small>115 學年度 · 一學年 23 首</small>
+      </span>
+    </div>
+    <div class="tools">
+      <button type="button" id="zyBtn" class="btn on" aria-pressed="true">注音 ㄅ</button>
+      <button type="button" id="themeBtn" class="btn" aria-label="切換深色淺色">◐</button>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="wrap tabsin">
+    <button type="button" class="tab on" data-view="plan">進度表</button>
+    <button type="button" class="tab" data-view="poems">23 首詩</button>
+    <button type="button" class="tab" data-view="authors">作者</button>
+    <button type="button" class="tab" data-view="how">怎麼用</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ═══ 進度表 ═══ -->
+  <section id="view-plan" class="view">
+    <div class="lead noprint">
+      <h1>一學年的背誦進度</h1>
+      <p>
+        這張表就是老師發的一覽表，我把它整理成看得懂的樣子，並且把 QR-Code 裡的影片連結解出來了——
+        <b>不用拿手機掃，直接點就能看</b>。
+      </p>
+      <p class="dim">老師說這張表要貼在教材最前面，所以這一頁印出來就是那張表。</p>
+      <button type="button" class="btn solid" onclick="window.print()">列印這張表</button>
+    </div>
+
+    <div class="printhead" aria-hidden="true">
+      <b>115 學年度 三上 詩詞背誦進度</b>
+      <span>共 23 首 · 影片連結見每首詩名下方</span>
+    </div>
+
+    <div class="tablewrap">
+      <table class="plan" id="planTable">
+        <thead>
+          <tr><th>週次</th><th>序號</th><th>詩名</th><th>作者</th><th>影片</th></tr>
+        </thead>
+        <tbody id="planBody"></tbody>
+      </table>
+    </div>
+
+    <p class="src noprint">
+      影片連結取自老師一覽表上的 QR-Code（已全部解碼比對）。〈春日〉那一格老師註明「無」，所以沒有連結。
+    </p>
+  </section>
+
+  <!-- ═══ 詩 ═══ -->
+  <section id="view-poems" class="view" hidden>
+    <div class="lead">
+      <h1>23 首詩</h1>
+      <p>每一首都有：<b>原文（附注音）</b>、白話的意思、<b>作者當時在想什麼</b>、難字小教室。</p>
+    </div>
+    <div class="filters">
+      <input type="search" id="q" placeholder="找詩名、作者或句子…" aria-label="搜尋">
+      <div class="chips" id="dynChips"></div>
+    </div>
+    <div id="poemList" class="poemlist"></div>
+    <p class="dim" id="poemCount"></p>
+  </section>
+
+  <!-- ═══ 作者 ═══ -->
+  <section id="view-authors" class="view" hidden>
+    <div class="lead">
+      <h1>他們是誰</h1>
+      <p>
+        老師特別說「觀看時請搭配作者生平介紹一起了解」。這裡把 17 位作者整理成小檔案：
+        <b>他是誰、活在什麼時候、寫詩的時候在想什麼</b>。
+      </p>
+      <p class="ov">
+        先看這支總覽：<a id="ovLink" href="#" target="_blank" rel="noopener">唐朝詩歌概況＋詩人創作風格 ↗</a>
+      </p>
+    </div>
+    <div id="authorList" class="authorlist"></div>
+  </section>
+
+  <!-- ═══ 怎麼用 ═══ -->
+  <section id="view-how" class="view" hidden>
+    <div class="lead">
+      <h1>怎麼用這個網站</h1>
+    </div>
+
+    <div class="how">
+      <article>
+        <h3>暑假：先看影片</h3>
+        <p>老師說課堂時間很緊，沒辦法在課堂上看影片，所以要利用暑假先看完。
+        建議<b>一天一支</b>，二十幾天就看完了——每支大概 3 到 5 分鐘。</p>
+      </article>
+      <article>
+        <h3>開學後：每週一首</h3>
+        <p>照進度表背。<b>第 8、10、17、19 週因為期中考暫停</b>，那四週可以拿來複習前面背過的。</p>
+      </article>
+      <article>
+        <h3>老師會請孩子發表</h3>
+        <p>開學後要講「對詩的內容、對作者的想法」。所以每首詩下面的
+        <b>「作者當時在想什麼」</b>不是背的，是拿來聊的——問他：你覺得他為什麼要這樣寫？</p>
+      </article>
+      <article>
+        <h3>注音可以關掉</h3>
+        <p>右上角的「注音ㄅ」按一下就關。<b>剛開始開著讀，背熟了就關掉自己念</b>，可以檢查是不是真的記得。</p>
+      </article>
+      <article class="warn">
+        <h3>注音怎麼來的</h3>
+        <p>先用工具產生，再逐字校對過破音字與變調（單于ㄔㄢˊ、彈琴ㄊㄢˊ、長嘯ㄔㄤˊ、數重山ㄔㄨㄥˊ、堅勁ㄐㄧㄥˋ…）。
+        如果跟課本不一樣，<b>以課本為準</b>，也跟我說一聲。</p>
+      </article>
+      <article>
+        <h3>白話和「在想什麼」是我們自己整理的</h3>
+        <p>詩的原文和進度是老師給的，其餘的說明是為了讓三年級看得懂而寫的，不是課本內容。</p>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="big">背起來只是第一步，<br>知道他為什麼要寫，才是真的讀懂了。</p>
+    <p id="counter" class="counter" hidden>本站累計瀏覽 <strong id="view-count">–</strong> 次</p>
+    <p class="small"><a href="../">← 回侯政宏的其他站</a> · 個人整理，非官方教材</p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script src="counter.js"></script>
+</body>
+</html>
