@@ -184,7 +184,7 @@ body{
 /* ---------- 畫面上的鍵盤 ---------- */
 .kb{
   background:var(--case);border:1px solid var(--line);border-radius:14px;
-  padding:12px;display:flex;flex-direction:column;gap:6px;overflow-x:auto;
+  padding:12px;display:flex;flex-direction:column;gap:6px;overflow:auto hidden;
 }
 .kb-row{display:flex;gap:6px;justify-content:center;min-width:660px}
 .k{
