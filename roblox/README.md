@@ -20,6 +20,8 @@
 | 07 進度表 | 五階段共 26 項，勾選存在瀏覽器裡 |
 | 08 名詞對照 | 41 個 Studio 英文名詞，可搜尋、可依分類過濾 |
 | 09 小測驗 | 五題讀程式碼的選擇題 |
+| 10 玩什麼比較好 | 八款挑過的遊戲，外加三款「很紅但要先知道問題在哪」的 |
+| 11 會用到腦袋的那幾款 | 九款工程／經營／物理／程式向的，第一款是真的在教 Luau 的課 |
 | 給爸媽 | 2026 年的年齡驗證與家長控制（預設收合） |
 
 ---
@@ -61,3 +63,17 @@ counter.js   Supabase 訪問計數（COUNTER_ID: roblox）
 - [Facial Age Estimation 說明](https://about.roblox.com/age-estimation)
 - [Roblox Core curriculum](https://create.roblox.com/docs/tutorials/curriculums/core)
 - [Luau 中文文件](https://create.roblox.com/docs/zh-tw/luau)
+
+---
+
+## 遊戲清單的挑法
+
+**人氣不是入選理由。** 兩份清單的每一款都是自己挑的，標準是：不課金也玩得下去、
+開一局就能玩、以及（第二份）玩的時候真的會用到腦袋。Roblox 上同時在線最高的那幾款
+大多沒有入選，反而放進「很紅但要先知道問題在哪」那一區——因為孩子一定會遇到，
+與其不提，不如先講清楚問題在哪。
+
+**數字是查來的，不是抄來的。** 好評率、同時在線人數、最後更新日期在 2026-08-18
+直接查 Roblox 官方 API（`games.roblox.com/v1/games`、`/v1/games/votes`）取得，
+連結用的是 API 回傳的 `rootPlaceId`。這些數字會變動，要更新就重查一次改 `data.js`
+裡的 `GAMES`，其他都不用動。

@@ -270,6 +270,33 @@ footer .small a{color:inherit}
 footer .counter{font-size:14px;color:var(--dim)}
 footer .counter strong{color:var(--accent);font-variant-numeric:tabular-nums}
 
+/* ── 遊戲清單 ── */
+h3.sub{margin:26px 0 6px;font-size:17px}
+.games{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.game{
+  display:block;text-decoration:none;color:inherit;background:var(--surface);
+  border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+}
+.game:hover{border-color:var(--accent)}
+.game:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.gtop{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.gtop b{font-size:16.5px;line-height:1.4}
+.rate{
+  flex:none;font-family:var(--mono);font-size:13px;padding:1px 7px;border-radius:6px;
+  background:var(--surface-2);color:var(--dim);
+}
+.rate.high{background:var(--run);color:#fff}
+.rate.low{background:var(--accent-soft);color:var(--accent)}
+.gby{margin:2px 0 9px;font-size:13px;color:var(--dim)}
+.gwhy{margin:0;font-size:14.5px;line-height:1.75}
+.glearn{margin:9px 0 0;font-size:13.5px;color:var(--run);font-weight:bold}
+.gwatch{
+  margin:9px 0 0;padding-left:9px;border-left:2px solid var(--line);
+  font-size:13.5px;line-height:1.7;color:var(--dim);
+}
+.games.careful .game{background:var(--accent-soft);border-color:var(--accent)}
+.games.careful .gwatch{border-left-color:var(--accent)}
+
 [hidden]{display:none !important}
 @media (prefers-reduced-motion: reduce){*{transition:none !important;scroll-behavior:auto}}
 
@@ -277,6 +304,6 @@ footer .counter strong{color:var(--accent);font-variant-numeric:tabular-nums}
   body{font-size:16px}
   h1{font-size:30px}
   h2{font-size:22px}
-  .two,.lu,.terms{grid-template-columns:1fr}
+  .two,.lu,.terms,.games{grid-template-columns:1fr}
   .steps li{padding-left:40px}
 }

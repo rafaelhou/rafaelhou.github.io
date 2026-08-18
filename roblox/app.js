@@ -260,4 +260,59 @@
       box.appendChild(d);
     });
   })();
+
+  /* ── 遊戲清單 ── */
+  (function games() {
+    if (typeof GAMES === 'undefined') return;
+
+    function el(tag, cls, txt) {
+      var e = document.createElement(tag);
+      if (cls) e.className = cls;
+      if (txt) e.textContent = txt;
+      return e;
+    }
+
+    // 一張卡：標題列（名字＋好評率）、一段為什麼、學到什麼、提醒、連結
+    function card(g, kind) {
+      var a = el('a', 'game');
+      a.href = 'https://www.roblox.com/games/' + g.id;
+      a.target = '_blank';
+      a.rel = 'noopener';
+
+      var top = el('div', 'gtop');
+      top.appendChild(el('b', null, g.name));
+      if (g.rating) {
+        var r = el('span', 'rate', g.rating + '%');
+        if (g.rating >= 93) r.className = 'rate high';
+        if (g.rating < 80) r.className = 'rate low';
+        top.appendChild(r);
+      }
+      a.appendChild(top);
+      a.appendChild(el('p', 'gby', g.by + (g.players ? ' · 最多 ' + g.players + ' 人一局' : '')));
+
+      if (g.why) a.appendChild(el('p', 'gwhy', g.why));
+      if (g.learn) a.appendChild(el('p', 'glearn', g.learn));
+      if (g.watch) a.appendChild(el('p', 'gwatch', g.watch));
+      if (g.note) a.appendChild(el('p', 'gwatch', g.note));
+
+      if (kind === 'careful') a.classList.add('warn');
+      return a;
+    }
+
+    function fill(id, rows, kind) {
+      var box = $(id);
+      if (!box) return;
+      rows.forEach(function (g) { box.appendChild(card(g, kind)); });
+    }
+
+    fill('funList', GAMES.fun);
+    fill('carefulList', GAMES.careful, 'careful');
+    fill('deepList', GAMES.deep);
+
+    var note = $('gameNote');
+    if (note) {
+      note.textContent = '好評率和同時在線人數是 ' + GAMES.checked +
+        '直接查 Roblox 官方資料得到的，之後會變。點名字會開新分頁到官方頁面。';
+    }
+  })();
 })();

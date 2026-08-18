@@ -157,3 +157,120 @@ const QUIZ = [
     why: '任何東西掉下來都會觸發 Touched。找得到 Humanoid，才確定碰到的是一個玩家角色。'
   }
 ];
+
+/* ── 遊戲清單 ──
+   兩份：一份是拿來玩的，一份是玩了會學到東西的。
+   數字（好評率、同時在線）是 2026-08-18 直接查 Roblox 官方 API 得到的，
+   會變動；要更新的話重查一次，改這裡就好。
+   id = rootPlaceId，連結格式 https://www.roblox.com/games/{id} */
+const GAMES = {
+  checked: '2026 年 8 月 18 日',
+
+  fun: [
+    {
+      name: 'Epic Minigames', id: 277751860, by: 'Typical Games', rating: 91, players: 12,
+      why: '一局兩三分鐘，隨機換一個小遊戲：躲球、跑酷、搶位子。人越多越好玩，適合跟同學約好一起進去。',
+      watch: '不用花任何錢也能玩到全部的小遊戲。'
+    },
+    {
+      name: 'Work at a Pizza Place', id: 192800, by: 'Dued1', rating: 93, players: 12,
+      why: '一家披薩店，五種工作：接單、做披薩、送外送、補貨、當老闆。大家要分工，訂單才出得去。',
+      watch: '2007 年就有的遊戲，到 2026 年還在更新——這種很少見。'
+    },
+    {
+      name: 'Natural Disaster Survival', id: 189707, by: 'Stickmasterluke', rating: 91, players: 30,
+      why: '一張地圖配一個天災：海嘯、龍捲風、地震、隕石。沒有武器，只有跑。五分鐘一局。',
+      watch: '死掉就等下一局，不會等很久。'
+    },
+    {
+      name: 'Tower of Hell', id: 1962086868, by: 'YXceptional Studios', rating: 74, players: 20,
+      why: '隨機生成的高塔，沒有存檔點，掉下去就從第一層開始。純技巧，跟你有多少 Robux 沒有關係。',
+      watch: '好評 74%，是這份清單裡最低的——很多人受不了它的難度。想練反應可以玩，容易生氣就先跳過。'
+    },
+    {
+      name: 'Grow a Garden', id: 126884695634066, by: 'The Garden Game', rating: 90, players: 4,
+      why: '種下去、等它長大、收成、再種更貴的。玩法很簡單，但它是這兩年最紅的遊戲之一，同學大概都在玩。',
+      watch: '靠時間累積，不課金也追得上，只是慢一點。'
+    },
+    {
+      name: 'Dress To Impress', id: 15101393044, by: 'Dress To Impress Group', rating: 91, players: 13,
+      why: '給一個主題，限時搭出一套衣服，然後大家互相評分。比的是想法，不是手速。',
+      watch: '評分是匿名的。分數低不用放在心上，下一局換主題重來。'
+    },
+    {
+      name: 'Vehicle Legends', id: 4566572536, by: 'QuadraTech', rating: 94, players: 16,
+      why: '開車、改車、比賽。好評 94%，是這兩份清單裡最高的其中一個。',
+      watch: '好車要用遊戲裡賺的錢買，慢慢存就好。'
+    },
+    {
+      name: 'Fisch', id: 16732694052, by: 'Fisching', rating: 91, players: 20,
+      why: '釣魚。就是釣魚：甩竿、等、拉起來。適合不想動腦的時候。',
+      watch: '更新很勤，查的那天剛好又更新了一次。'
+    }
+  ],
+
+  /* 很紅，但玩之前要先講清楚的 */
+  careful: [
+    {
+      name: 'Brookhaven RP', id: 4924922222, by: 'Voldex', rating: 86, players: 351933,
+      note: '全 Roblox 同時在線最多的遊戲（查的時候有 35 萬人）。但它幾乎所有的內容都是「跟別人講話」，你會遇到完全不認識的人。真的要玩，開私人伺服器只找同學。'
+    },
+    {
+      name: 'Adopt Me!', id: 920587237, by: 'Uplift Games', rating: 86, players: 246626,
+      note: '養寵物、交換寵物。交易是它的核心，也是最容易出事的地方——有人會用假交易騙走你的稀有寵物。要換東西以前先問大人。'
+    },
+    {
+      name: 'Murder Mystery 2', id: 142823291, by: 'Nikilis', rating: 91, players: 266246,
+      note: '26 萬人在玩，卡通畫風、不血腥，但玩法就是「找出誰是兇手」。這個主題適不適合，自己跟爸媽討論一下。'
+    }
+  ],
+
+  deep: [
+    {
+      name: 'Lua Learning', id: 1334669864, by: 'Torpedo Software', rating: 94,
+      why: '它不是遊戲，是一堂課：在 Roblox 裡面直接教你寫 Luau，有講解、有練習、有測驗。手冊第 05 章那五件事，這裡面全部都有。',
+      learn: 'Luau 語法 · 變數 · 迴圈 · 函式',
+      watch: '同時在線只有個位數——因為它不是拿來玩的。這不代表它不好。'
+    },
+    {
+      name: 'Theme Park Tycoon 2', id: 69184822, by: 'Den_S', rating: 89,
+      why: '蓋一座遊樂園。先蓋什麼、票價多少、廁所放哪裡，都是你決定。錢不夠就是不夠——這是它最像真的地方。',
+      learn: '動線規劃 · 預算控制 · 看數字調價格'
+    },
+    {
+      name: 'Build A Boat For Treasure', id: 537413528, by: 'Chillz Studios', rating: 93,
+      why: '用積木拼一艘船，然後開出去。會不會沉、會不會翻，是真的照物理算出來的，不是隨機。',
+      learn: '重心 · 浮力 · 結構強度'
+    },
+    {
+      name: 'Plane Crazy', id: 166986752, by: 'Plane Crazy Developers', rating: 80,
+      why: '給你馬達、輪子、鉸鏈、按鈕，你自己把它們接起來，做出會動的機器。做飛機只是其中一種玩法。',
+      learn: '機構 · 傳動 · 控制'
+    },
+    {
+      name: 'Retail Tycoon 2', id: 5865858426, by: 'Secondhand Studios', rating: 88,
+      why: '開一家店：進貨、定價、請店員、付水電。定太貴沒人買，定太便宜賺不到錢。',
+      learn: '成本 · 定價 · 現金流'
+    },
+    {
+      name: 'Lumber Tycoon 2', id: 13822889, by: 'Defaultio', rating: 88,
+      why: '砍樹、把木頭運回來、切成板子、賣掉。地圖很大，光是「怎麼把東西運回去」本身就是一個難題。',
+      learn: '資源鏈 · 運輸規劃'
+    },
+    {
+      name: 'Bee Swarm Simulator', id: 1537690962, by: 'Onett', rating: 96,
+      why: '養蜜蜂採蜜。看起來只是點來點去，其實底下是一個很深的數值遊戲：哪種蜜蜂配哪個裝備、先升級哪一項。好評 96%，全清單最高。',
+      learn: '數值最佳化 · 先後順序'
+    },
+    {
+      name: 'Car Crushers 2', id: 654732683, by: 'Car Crushers Community', rating: 93,
+      why: '把車開進各種機器裡壓爛。聽起來很無聊，但它的破壞是真的在算物理——同一台車換個角度撞，爛法不一樣。',
+      learn: '物理實驗 · 材料強度'
+    },
+    {
+      name: 'Innovation Inc. Spaceship', id: 331811267, by: 'Festivereinhard2', rating: 91,
+      why: '一艘要好幾個人一起操作的太空船：有人開船、有人顧反應爐、有人處理跑出來的東西。一個人做不完。',
+      learn: '分工 · 流程 · 出事時怎麼辦'
+    }
+  ]
+};
