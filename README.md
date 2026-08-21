@@ -12,7 +12,7 @@
 | --- | --- |
 | Series 01 · 陪孩子玩 | [麥塊家長指南](https://minecraft-parent-guide.pages.dev)、[和八歲孩子玩 Steam](https://steam-with-kids.pages.dev)、[Roblox 學習手冊](roblox/) |
 | Series 02 · 陪孩子學 | [錢會自己長大嗎？](https://kids-investing.pages.dev)、[WMI 備賽計畫](https://wmi-prep.pages.dev)、[打字小英雄](typing-hero/)、[三上詩詞](poems/) |
-| Series 03 · 我的學習筆記 | [AI 素養教育工作坊課堂筆記](https://ai-literacy-notes.pages.dev) |
+| Series 03 · 我的學習筆記 | [AI 素養教育工作坊課堂筆記](https://ai-literacy-notes.pages.dev)、[泉漳本無史](https://taihai-history.pages.dev)、[赴美升學路線圖](https://study-abroad-roadmap.pages.dev) |
 
 多數站各有自己的倉庫，另有幾個小站直接住在這個倉庫的子目錄裡，網址即 `rafaelhou.github.io/<子目錄>/`：
 
