@@ -256,3 +256,10 @@ a { color: var(--green); }
   .cards { grid-template-columns: 1fr; }
   .thumb { height: 5.5rem; font-size: 2.2rem; }
 }
+
+/* 上了密碼鎖的筆記，卡片上要先講清楚，不然點進去看到密碼框會以為壞了 */
+.meta .lock {
+  display: inline-block; margin-right: .5em; padding: .05em .5em;
+  border-radius: 999px; background: #efe6d6; color: #7a5f33;
+  font-size: .92em; font-weight: 700; letter-spacing: .02em;
+}
