@@ -263,3 +263,4 @@ a { color: var(--green); }
   border-radius: 999px; background: #efe6d6; color: #7a5f33;
   font-size: .92em; font-weight: 700; letter-spacing: .02em;
 }
+.locked-note { color: var(--muted, #8d857c); font-style: normal; }
