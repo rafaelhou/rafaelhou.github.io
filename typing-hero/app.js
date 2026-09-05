@@ -9,11 +9,13 @@
 (function(){
   "use strict";
 
+  // 前兩關是純字母練習，不放空白：手指還在學字母位置的階段，
+  // 中間插一顆大拇指只是打斷節奏。後三關是真正的單字和句子，空白照打。
   var LEVELS = [
     { name:"主排鍵", desc:"手指不用移動，先熟悉最重要的 8 顆鍵。",
-      lines:["asdf jkl; asdf jkl;","aaa sss ddd fff","jjj kkk lll ;;;","fj fj dk dk sl sl","dad sad lad fall","ask a salad flask"] },
+      lines:["asdfjkl;asdfjkl;","aaasssdddfff","jjjkkklll;;;","fjfjdkdkslsl","dadsadladfall","askasaladflask"] },
     { name:"認識字母", desc:"26 個字母走一遍，手指要跑上跑下。",
-      lines:["abc def ghi jkl","mno pqr stu vwx","wxyz abcd efgh","the quick brown fox","jumps over the lazy dog","big jazzy vex quilt"] },
+      lines:["abcdefghijkl","mnopqrstuvwx","wxyzabcdefgh","thequickbrownfox","jumpsoverthelazydog","bigjazzyvexquilt"] },
     { name:"簡單單字", desc:"你一定認識的短單字，練習一整個字打完。",
       lines:["cat dog pig cow","red blue green pink","one two three four","sun moon star sky","big small tall short","apple banana orange"] },
     { name:"學校單字", desc:"三年級課本裡會用到的單字。",
@@ -269,6 +271,9 @@
     if (e.key.charCodeAt(0) > 255){ $("imeWarn").hidden = false; return; }
     e.preventDefault();
     $("imeWarn").hidden = true;
+    // 前兩關句子裡沒有空白，習慣性按到空白鍵就當作沒按，不要算成打錯；
+    // 該打空白的地方（後三關）照常判定。
+    if (e.key === " " && lv.lines[lineIdx].charAt(charIdx) !== " ") return;
     typeChar(e.key);
   });
 
